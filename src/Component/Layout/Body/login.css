@@ -1,0 +1,242 @@
+.login body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
+}
+
+.login .card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 10px;
+    margin-top: 100px;
+    position: relative;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 15%;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.login .card2 {
+    margin: 0px 40px
+}
+
+.login .logo {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
+}
+
+.login .image {
+    width: 400px;
+    height: 320px
+}
+.login .image2 {
+    width: 430px;
+    height: 550px
+}
+.login .form-rounded {
+    border-radius: 1rem;
+    }
+.login .border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+.login .facebook {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.login .twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.login .linkedin {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.login .line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.login .or {
+    width: 10%;
+    font-weight: bold
+}
+
+.login .text-sm {
+    font-size: 14px !important
+}
+
+.login ::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+}
+
+.login :-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+.login ::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+.login input,
+.login textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+.login input:focus,
+.login textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+.login button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.login a {
+    color: inherit;
+    cursor: pointer
+}
+
+.login .btn-blue {
+    background-color: #1A237E;
+    width: 250px;
+    color: #fff;
+    border-radius: 20px;
+    margin-left: 25%
+}
+
+.login .btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.login .bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+    .login .logo {
+        margin-left: 0px
+    }
+
+    .login .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .login .border-line {
+        border-right: none
+    }
+
+    .login .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}
+
+/* ---------FOR REGISTER FORM----------- */
+
+.register-form{
+    margin-top: 10px;
+  }
+
+  .login .cardReg0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 10px;
+    position: relative;
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    margin:10px 10px 0px 250px;
+    width: 70%;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.login .cardReg2 {
+    margin: 0px 20px
+}
+   
+  
+  .auth-wrapper-register {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+   
+  .auth-inner-register {
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+  }
+   
+  .auth-wrapper-register .form-control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+  }
+   
+  .auth-wrapper-register h3 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 20px;
+  }
