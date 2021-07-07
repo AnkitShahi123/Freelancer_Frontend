@@ -53,17 +53,16 @@ class Signup extends Component {
             data: data,
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
-            //axios.post("http://localhost:91/user/add", data)
             .then(response => {
                 console.log(response);
-                //console.log(response.data);
+                console.log(response.data);
                 alert("User has been registered successfully. Please update your profile by adding additional details after logging in.")
                 window.location.href = '/login';
             })
             .catch(err => {
                 console.log(err.response);
                 alert("Registration unsuccessfull")
-                //        window.location.href = '/register';
+        //        window.location.href = '/register';
             })
 
     };
@@ -116,11 +115,7 @@ class Signup extends Component {
                                             <h6 class="mb-0 text-sm">Role</h6>
                                         </label>
                                             <p></p>
-                                            {/* <select class="form-rounded" onChange={this.inputHandler} value={this.state.role}>
-                                                <option value="Customer" id="secondOption" class="form-rounded">Customer</option>
-                                                <option value="Company" class="form-rounded" id="firstOption">Company</option>
-
-                                            </select> */}
+                                            
                                             <input class="mb-4" type="text" class="form-rounded" placeholder="Type if you are Customer or Company" value={this.state.role} name="role" onChange={this.inputHandler} /> 
                                             </div>
                                         <div class="row px-3 mb-4">

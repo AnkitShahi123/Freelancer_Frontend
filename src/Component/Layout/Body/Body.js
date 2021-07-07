@@ -1,49 +1,47 @@
-import Signup from './Signup';
-import Login from './Login';
-// import Home from '../Common/home';
-import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
-import AdminLogin from '../Adminpannel/Adminlogin';
-import DashboardCharts from '../Adminpannel/Admindashboard';
+import Signup from "./Signup";
+import Login from "./Login";
+import addJob from "../Client/addJob";
+import showAllJob from "../Freelancer/showAllJob";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 
+import adminpanel from "../Adminpannel/adminpanel";
 
 const Routes = ({ location }) => {
-
-    const checkRoute = () => {
-
-        const splitLocation = location.pathname.split("/")
-        if (splitLocation.length > 1) {
-            if (splitLocation[1] === "admin") {
-                return true;
-            }
-        }
-
-        return false;
+  const checkRoute = () => {
+    const splitLocation = location.pathname.split("/");
+    if (splitLocation.length > 1) {
+      if (splitLocation[1] === "admin") {
+        return true;
+      }
     }
 
-            return (
-                <>
-                <Switch>
-                    {/* <Route path="/" exact component={Home}/> */}
-                    <Route path='/signup' component={Signup} />
-                    <Route path='/login' component={Login} />
+    return false;
+  };
 
-                    {/* For Admin */}
-                    <Route path="/admin/" render={({ location, history }) => (
-                        <main id="wrapper" className="wrapper">
+  return (
+    <>
+      <Switch>
+        {/* <Route path="/" exact component={Home}/> */}
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
 
-                            <Route path="/admin/" exact component={AdminLogin} />
-                            <Route path="/admin/dashboard" component={DashboardCharts} />
+        {/* For admin */}
+        <Route path="/adminpanel" component={adminpanel} />
 
+        {/* For Client  */}
+        <Route path="/addJob" component={addJob} />
 
-                        </main>
-                    )} />
-                </Switch>
-                {/* {!checkRoute && "/admin'" && <Footer/>} */}
-                </>
-
-
-            )
-        }
+        {/* For Freelancer  */}
+        <Route path="/showAllJob" component={showAllJob} />
+      </Switch>
+    </>
+  );
+};
 
 export default withRouter(Routes);

@@ -1,5 +1,3 @@
-
-//import { Button } from "./Button";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +18,7 @@ class Header extends Component {
 
     render() {
 
-        if (localStorage.getItem('token') && localStorage.getItem('role') === 'Company') {
+        if (localStorage.getItem('token') && localStorage.getItem('role') === 'Client') {
             var menu =
                 <div>
 
@@ -34,13 +32,7 @@ class Header extends Component {
                                 <Nav.Link ><Link className="navbarText" to="/"> Home</Link></Nav.Link>
                                
                                 <Nav.Link ><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
-                                <Nav.Link ><Link className="navbarText" to="/profile"> Profile</Link></Nav.Link>
-                                <Nav.Link ><Link className="navbarText" to="/jobAdd">Add Job</Link></Nav.Link>
-                                <Nav.Link ><Link className="navbarText" to="/myListings">My Listings</Link></Nav.Link>
-                                <div className="text-light">
-                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
-                                </div>
+                                
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
                             </Nav>
@@ -50,7 +42,7 @@ class Header extends Component {
 
                 </div>
         }
-        else if (localStorage.getItem('token') && localStorage.getItem('role') === 'Customer') {
+        else if (localStorage.getItem('token') && localStorage.getItem('role') === 'Freelancer') {
             var menu =
                 <div>
 
@@ -61,15 +53,8 @@ class Header extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
-
-                                <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
-                                <Nav.Link><Link className="navbarText" to="/showAllJob"> Show All Job</Link></Nav.Link>
-                                <Nav.Link><Link className="navbarText" to="/profile2"> Profile</Link></Nav.Link>
-                                <Nav.Link><Link className="navbarText" to="/myApplied">My Applied</Link></Nav.Link>
-                                <div className="text-light">
-                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
-                                </div>
+                                  <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
+                             
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
                             </Nav>
@@ -91,14 +76,7 @@ class Header extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
                                 <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
-
-
-                                <Nav.Link><Link className="navbarText" to="/showAllJob"> Show All Job</Link></Nav.Link>
-                                <Nav.Link><Link className="navbarText" to="/showcontactus">Show Messages</Link></Nav.Link>
-                                <div className="text-light">
-                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
-                                </div>
+                                
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
                             </Nav>
