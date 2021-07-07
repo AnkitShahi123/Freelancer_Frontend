@@ -19,7 +19,7 @@ export default class Login extends Component {
     submitUser = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:90/user/login', this.state)
+        axios.post('http://localhost:89/user/login', this.state)
             .then((response) => {
                 this.setState({
                     loginChk: true
@@ -36,10 +36,10 @@ export default class Login extends Component {
     
     render() {
         if (this.state.loginChk === true) {
-            return <Redirect to='/showAllJob' />
+            return <Redirect to='/' />
         }
         if (localStorage.getItem('token')) {
-            return <Redirect to='/showAllJob' />
+            return <Redirect to='/' />
         }
         return (
 

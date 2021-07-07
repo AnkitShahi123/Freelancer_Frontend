@@ -47,24 +47,24 @@ class Signup extends Component {
 
 
 
-        // axios({
-        //     method: 'post',
-        //     url: 'http://localhost:91/user/add',
-        //     data: data,
-        //     headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        // })
-        //     //axios.post("http://localhost:91/user/add", data)
-        //     .then(response => {
-        //         console.log(response);
-        //         //console.log(response.data);
-        //         alert("User has been registered successfully. Please update your profile by adding additional details after logging in.")
-        //         window.location.href = '/login';
-        //     })
-        //     .catch(err => {
-        //         console.log(err.response);
-        //         alert("Registration unsuccessfull")
-        //         //        window.location.href = '/register';
-        //     })
+        axios({
+            method: 'post',
+            url: 'http://localhost:89/user/add',
+            data: data,
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        })
+            //axios.post("http://localhost:91/user/add", data)
+            .then(response => {
+                console.log(response);
+                //console.log(response.data);
+                alert("User has been registered successfully. Please update your profile by adding additional details after logging in.")
+                window.location.href = '/login';
+            })
+            .catch(err => {
+                console.log(err.response);
+                alert("Registration unsuccessfull")
+                //        window.location.href = '/register';
+            })
 
     };
 
