@@ -2,8 +2,15 @@ import React, { Component } from "react";
 
 export default class profile extends Component {
   render() {
-    return (
-      <div class="container">
+    if (localStorage.getItem('token') && localStorage.getItem('role') === 'Client') {
+      var menu =
+          <div>
+              This is client profile
+          </div>
+    }else if (localStorage.getItem('token') && localStorage.getItem('role') === 'Freelancer') {
+      var menu =
+      <div>
+<div class="container">
         <div class="main-body">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -25,42 +32,45 @@ export default class profile extends Component {
                 </div>
               </div>
               <div class="card mt-3">
-              <div class="panel">
-            <div class="panel-heading">
-              <span class="panel-icon">
-                <i class="fa fa-pencil"></i>
-              </span>
-              <span class="panel-title">About Me</span>
-            </div>
-            <div class="panel-body pb5">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <span class="panel-icon">
+                      <i class="fa fa-pencil"></i>
+                    </span>
+                    <span class="panel-title">About Me</span>
+                  </div>
+                  <div class="panel-body pb5">
+                    <h6>Experience</h6>
 
-              <h6>Experience</h6>
+                    <h4>Facebook Internship</h4>
+                    <p class="text-muted">
+                      details, location
+                      <br></br> detils, June 2010 through Aug 2011
+                    </p>
 
-              <h4>Facebook Internship</h4>
-              <p class="text-muted">details, location
-                <br></br> detils, June 2010 through Aug 2011
-              </p>
+                    <hr class="short br-lighter"></hr>
 
-              <hr class="short br-lighter"></hr>
+                    <h6>Education</h6>
 
-              <h6>Education</h6>
+                    <h4>Bachelor of Science, PhD</h4>
+                    <p class="text-muted">
+                      {" "}
+                      details, location
+                      <br></br> detils, June 2010 through Aug 2011
+                    </p>
 
-              <h4>Bachelor of Science, PhD</h4>
-              <p class="text-muted"> details, location
-                <br></br> detils, June 2010 through Aug 2011
-              </p>
+                    <hr class="short br-lighter"></hr>
 
-              <hr class="short br-lighter"></hr>
+                    <h6>Accomplishments</h6>
 
-              <h6>Accomplishments</h6>
-
-              <h4>Successful Business</h4>
-              <p class="text-muted pb10"> details, location
-                <br></br> detils, June 2010 through Aug 2011
-              </p>
-
-            </div>
-          </div>
+                    <h4>Successful Business</h4>
+                    <p class="text-muted pb10">
+                      {" "}
+                      details, location
+                      <br></br> detils, June 2010 through Aug 2011
+                    </p>
+                  </div>
+                </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0">
@@ -231,6 +241,20 @@ export default class profile extends Component {
           </div>
         </div>
       </div>
-    );
+
+      </div>
+    }else{
+      var menu =
+          <div>
+This is admin profile
+          </div>
+    }
+
+    return (
+      <div>
+        {menu}
+
+      </div>
+      );
   }
 }
