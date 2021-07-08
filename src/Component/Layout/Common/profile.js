@@ -52,12 +52,15 @@ export default class profile extends Component {
                           width="150"
                         />
                         <div class="mt-3">
-                          <h4>{this.state.users.firstname}{" "}{this.state.users.lastname}</h4>
+                          <h4>
+                            {this.state.users.firstname}{" "}
+                            {this.state.users.lastname}
+                          </h4>
                           <p class="text-secondary mb-1">
-                          {this.state.users.email}
+                            {this.state.users.email}
                           </p>
                           <p class="text-muted font-size-sm">
-                          {this.state.users.address}
+                            {this.state.users.address}
                           </p>
                         </div>
                       </div>
@@ -74,32 +77,20 @@ export default class profile extends Component {
                       <div class="panel-body pb5">
                         <h6>Experience</h6>
 
-                        <h4>Facebook Internship</h4>
-                        <p class="text-muted">
-                          details, location
-                          <br></br> detils, June 2010 through Aug 2011
-                        </p>
-
+                        <h4>{this.state.users.experience}</h4>
                         <hr class="short br-lighter"></hr>
 
                         <h6>Education</h6>
 
-                        <h4>Bachelor of Science, PhD</h4>
-                        <p class="text-muted">
-                          {" "}
-                          details, location
-                          <br></br> detils, June 2010 through Aug 2011
-                        </p>
+                        <h4>Edu{this.state.users.education}</h4>
 
                         <hr class="short br-lighter"></hr>
 
-                        <h6>Accomplishments</h6>
+                        <h6>Projects</h6>
 
-                        <h4>Successful Business</h4>
+                        <h4> </h4>
                         <p class="text-muted pb10">
-                          {" "}
-                          details, location
-                          <br></br> detils, June 2010 through Aug 2011
+                        {this.state.users.projects}
                         </p>
                       </div>
                     </div>
@@ -228,7 +219,8 @@ export default class profile extends Component {
                           <h6 class="mb-0">Full Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        {this.state.users.firstname}{" "}{this.state.users.lastname}
+                          {this.state.users.firstname}{" "}
+                          {this.state.users.lastname}
                         </div>
                       </div>
                       <hr></hr>
@@ -237,7 +229,7 @@ export default class profile extends Component {
                           <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        {this.state.users.email}
+                          {this.state.users.email}
                         </div>
                       </div>
                       <hr></hr>
@@ -245,29 +237,37 @@ export default class profile extends Component {
                         <div class="col-sm-3">
                           <h6 class="mb-0">Phone</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">{this.state.users.phone}</div>
+                        <div class="col-sm-9 text-secondary">
+                          {this.state.users.phone}
+                        </div>
                       </div>
                       <hr></hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Role</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">{this.state.users.role}</div>
+                        <div class="col-sm-9 text-secondary">
+                          {this.state.users.role}
+                        </div>
                       </div>
                       <hr></hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Address</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">{this.state.users.address}</div>
+                        <div class="col-sm-9 text-secondary">
+                          {this.state.users.address}
+                        </div>
                       </div>
-                      
+
                       <hr></hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Joined in</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">{this.state.users.createdAt}</div>
+                        <div class="col-sm-9 text-secondary">
+                          {this.state.users.createdAt}
+                        </div>
                       </div>
                       <hr></hr>
                       <div class="row">
