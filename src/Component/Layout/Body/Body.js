@@ -1,5 +1,8 @@
 import Signup from "./Signup";
 import Login from "./Login";
+import Profile from "../Common/profile";
+import editUserProfile from "../Common/edituserprofile";
+import ClientProfile from "../Common/clientprofile";
 import addJob from "../Client/addJob";
 import showAllJob from "../Freelancer/showAllJob";
 
@@ -30,15 +33,20 @@ const Routes = ({ location }) => {
         {/* <Route path="/" exact component={Home}/> */}
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
+        
+        <Route path="/profile" component={Profile} />
 
         {/* For admin */}
         <Route path="/adminpanel" component={adminpanel} />
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
+        <Route path="/clientprofile" component={ClientProfile} />
 
         {/* For Freelancer  */}
         <Route path="/showAllJob" component={showAllJob} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/edituserprofile" component={editUserProfile} />
       </Switch>
     </>
   );

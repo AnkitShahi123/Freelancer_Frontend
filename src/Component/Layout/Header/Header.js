@@ -32,6 +32,7 @@ class Header extends Component {
                                 <Nav.Link ><Link className="navbarText" to="/"> Home</Link></Nav.Link>
                                
                                 <Nav.Link ><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/contact">Profile</Link></Nav.Link>
                                 
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
@@ -54,7 +55,8 @@ class Header extends Component {
                             <Nav className="ml-auto">
                                 <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
                                   <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
-                             
+                                  <Nav.Link><Link className="navbarText" to="/contact">Profile</Link></Nav.Link>
+
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
                             </Nav>
