@@ -20,7 +20,7 @@ export default class Login extends Component {
     e.preventDefault();
 
     axios
-      .post("http://localhost:89/user/login", this.state)
+      .post("https://freelancernepal.netlify.app//user/login", this.state)
       .then((response) => {
         this.setState({
           loginChk: true,

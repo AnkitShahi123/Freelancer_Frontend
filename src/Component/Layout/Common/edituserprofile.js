@@ -34,7 +34,7 @@ export default class editUserProfile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "http://localhost:89/freelancerProfile",
+      url: "https://freelancernepal.netlify.app/freelancerProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -64,7 +64,7 @@ export default class editUserProfile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "http://localhost:89/clientProfile",
+      url: "https://freelancernepal.netlify.app/",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -106,7 +106,7 @@ export default class editUserProfile extends Component {
     data.append("education", this.state.education);
     axios({
       method: "put",
-      url: "http://localhost:89/profile/editProfileFreelancer/" + this.state.id,
+      url: "https://freelancernepal.netlify.app/" + this.state.id,
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -139,7 +139,7 @@ export default class editUserProfile extends Component {
 
     axios({
       method: "put",
-      url: "http://localhost:89/profile/editProfileClient/" + this.state.id,
+      url: "https://freelancernepal.netlify.app/" + this.state.id,
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
