@@ -34,7 +34,7 @@ export default class editUserProfile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancernepal.netlify.app:89/freelancerProfile",
+      url: "https://freelancerbackend.herokuapp.com:89/freelancerProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -64,7 +64,7 @@ export default class editUserProfile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancernepal.netlify.app:89",
+      url: "https://freelancerbackend.herokuapp.com:89",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -106,7 +106,7 @@ export default class editUserProfile extends Component {
     data.append("education", this.state.education);
     axios({
       method: "put",
-      url: "https://freelancernepal.netlify.app:89" + this.state.id,
+      url: "https://freelancerbackend.herokuapp.com:89" + this.state.id,
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -139,7 +139,7 @@ export default class editUserProfile extends Component {
 
     axios({
       method: "put",
-      url: "https://freelancernepal.netlify.app:89" + this.state.id,
+      url: "https://freelancerbackend.herokuapp.com:89" + this.state.id,
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })

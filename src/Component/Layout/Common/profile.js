@@ -14,7 +14,7 @@ export default class profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancernepal.netlify.app:89",
+      url: "https://freelancerbackend.herokuapp.com:89",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -31,7 +31,7 @@ export default class profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancernepal.netlify.app:89",
+      url: "https://freelancerbackend.herokuapp.com:89",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {

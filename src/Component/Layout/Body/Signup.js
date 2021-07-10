@@ -49,7 +49,7 @@ class Signup extends Component {
 
         axios({
             method: 'post',
-            url: 'https://freelancernepal.netlify.app:89/user/add',
+            url: 'https://freelancerbackend.herokuapp.com:89/user/add',
             data: data,
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
