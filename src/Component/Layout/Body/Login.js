@@ -20,7 +20,7 @@ export default class Login extends Component {
     e.preventDefault();
 
     axios
-      .post("https://freelancerbackend.herokuapp.com:89/user/login", this.state)
+      .post("https://freelancerbackend.herokuapp.com/user/login", this.state)
       .then((response) => {
         this.setState({
           loginChk: true,
