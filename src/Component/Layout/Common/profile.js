@@ -14,7 +14,7 @@ export default class profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancerbackend.herokuapp.com",
+      url: "https://freelancerbackend.herokuapp.com/clientProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -31,7 +31,7 @@ export default class profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancerbackend.herokuapp.com",
+      url: "https://freelancerbackend.herokuapp.com/freelancerProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
