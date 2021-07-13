@@ -59,7 +59,7 @@ export default class editclientProfile extends Component {
   }
 
 
-  updateProfile2 = (e) => {
+  updateProfile= (e) => {
     e.preventDefault();
     alert(this.state.id);
     const data = new FormData();
@@ -82,7 +82,7 @@ export default class editclientProfile extends Component {
       .then((response) => {
         console.log(response);
         alert("profile update successfull");
-        window.location.href = "/profile";
+        window.location.href = "/profileClient";
       })
       .catch((err) => {
         console.log(err.response);

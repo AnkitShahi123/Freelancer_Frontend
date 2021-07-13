@@ -56,6 +56,7 @@ class Header extends Component {
                                 <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
                                   <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
                                   <Nav.Link><Link className="navbarText" to="/profile">Profile</Link></Nav.Link>
+                                  <Nav.Link><Link className="navbarText" to="/showAllJob">Show all works</Link></Nav.Link>
 
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 

@@ -27,11 +27,11 @@ export default class profileClient extends Component {
         console.log(err.response);
       });
   }
-  
- 
+
   render() {
-      var menu = <div>
-         <div>
+    var menus = (
+      <div>
+        <div>
           <div class="container">
             <div class="main-body">
               <div class="row gutters-sm">
@@ -56,7 +56,8 @@ export default class profileClient extends Component {
                           <p class="text-muted font-size-sm">
                             {this.state.users.address}
                           </p>
-                          User Bio<p class="text-muted font-size-sm">
+                          User Bio
+                          <p class="text-muted font-size-sm">
                             {this.state.users.userbio}
                           </p>
                         </div>
@@ -72,8 +73,6 @@ export default class profileClient extends Component {
                         <span class="panel-title">About Me</span>
                       </div>
                       <div class="panel-body pb5">
-
-
                         <h6>Projects</h6>
 
                         <h4> </h4>
@@ -261,7 +260,7 @@ export default class profileClient extends Component {
                       <div class="row">
                         <div class="col-sm-12">
                           <Button>
-                            <Link to={"/editUserProfile/"}>
+                            <Link to={"/editclientprofile/" + this.state.users._id}>
                               {" "}
                               <button
                                 class="btn btn-info-gradiant btn-md text-white border-0"
@@ -281,9 +280,9 @@ export default class profileClient extends Component {
             </div>
           </div>
         </div>
-      </div>;
-    
+      </div>
+    );
 
-    return <div>{menu}</div>;
+    return <div>{menus}</div>;
   }
 }

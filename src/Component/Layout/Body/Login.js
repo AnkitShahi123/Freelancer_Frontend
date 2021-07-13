@@ -44,10 +44,10 @@ export default class Login extends Component {
 
   render() {
     if (this.state.loginChk === true) {
-      return <Redirect to="/addJob" />;
+      return <Redirect to="/showAllJob" />;
     }
     if (localStorage.getItem("token")) {
-      return <Redirect to="/addJob" />;
+      return <Redirect to="/showAllJob" />;
     }
     return (
       <div className="login">

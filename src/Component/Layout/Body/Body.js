@@ -1,5 +1,6 @@
 import Signup from "./Signup";
 import Login from "./Login";
+import home from "../Common/Home";
 import Profile from "../Freelancer/profile";
 import editUserProfile from "../Freelancer/edituserprofile";
 import editclientProfile from "../Client/editclientprofile";
@@ -15,23 +16,14 @@ import {
 } from "react-router-dom";
 
 import adminpanel from "../Adminpannel/adminpanel";
+const {Component}=require("react");
 
-const Routes = ({ location }) => {
-  const checkRoute = () => {
-    const splitLocation = location.pathname.split("/");
-    if (splitLocation.length > 1) {
-      if (splitLocation[1] === "admin") {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
+export default class Body extends Component {
+render() {
   return (
-    <>
+    <div>
       <Switch>
-        {/* <Route path="/" exact component={Home}/> */}
+      <Route path="/" exact component={home}/>
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         
@@ -43,15 +35,16 @@ const Routes = ({ location }) => {
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
         <Route pqath="/profileClient" component={profileClient} />
-        <Route path="/editclientprofile" component={editclientProfile} />
+        <Route path="/editclientprofile/:id" component={editclientProfile} />
 
         {/* For Freelancer  */}
         <Route path="/showAllJob" component={showAllJob} />
         <Route path="/profile" component={Profile} />
-        <Route path="/edituserprofile" component={editUserProfile} />
+        <Route path="/edituserprofile/:id" component={editUserProfile} />
       </Switch>
-    </>
+    </div>
   );
+}
+  
 };
 
-export default withRouter(Routes);
