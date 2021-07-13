@@ -3,7 +3,7 @@ import Login from "./Login";
 import Profile from "../Freelancer/profile";
 import editUserProfile from "../Freelancer/edituserprofile";
 import editclientProfile from "../Client/editclientprofile";
-import ClientProfile from "../Common/clientprofile";
+import profileClient from "../Client/profileClient";
 import addJob from "../Client/addJob";
 import showAllJob from "../Freelancer/showAllJob";
 
