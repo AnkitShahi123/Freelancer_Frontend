@@ -1,7 +1,8 @@
 import Signup from "./Signup";
 import Login from "./Login";
-import Profile from "../Common/profile";
-import editUserProfile from "../Common/edituserprofile";
+import Profile from "../Freelancer/profile";
+import editUserProfile from "../Freelancer/edituserprofile";
+import editclientProfile from "../Client/editclientprofile";
 import ClientProfile from "../Common/clientprofile";
 import addJob from "../Client/addJob";
 import showAllJob from "../Freelancer/showAllJob";
@@ -42,6 +43,7 @@ const Routes = ({ location }) => {
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
         <Route path="/clientprofile" component={ClientProfile} />
+        <Route path="/editclientprofile" component={editclientProfile} />
 
         {/* For Freelancer  */}
         <Route path="/showAllJob" component={showAllJob} />
