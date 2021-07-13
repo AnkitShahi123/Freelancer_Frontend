@@ -42,7 +42,7 @@ const Routes = ({ location }) => {
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
-        <Route path="/clientprofile" component={ClientProfile} />
+        <Route pqath="/profileClient" component={profileClient} />
         <Route path="/editclientprofile" component={editclientProfile} />
 
         {/* For Freelancer  */}
