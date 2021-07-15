@@ -60,12 +60,23 @@ const { delay } = require("../utils/delay");
 //   await driver.quit();
 // });
 
-Given("Test Apply functionality", { timeout: 30000 }, async function () {
+// Given("Test Apply functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:4200/jobDetails/60f303dccde19e0015d50bce");
+//   await driver.findElement(By.id("applyid")).sendKeys("aavash@client.com");
+//   await driver.sleep(delay);
+//   await driver.findElement(By.id("apply")).click();
+
+
+//   await driver.quit();
+// });
+
+Given("Test Save functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:4200/jobDetails/60f303dccde19e0015d50bce");
-  await driver.findElement(By.id("applyid")).sendKeys("aavash@client.com");
+  await driver.findElement(By.id("saveid")).sendKeys("aavash@client.com");
   await driver.sleep(delay);
-  await driver.findElement(By.id("apply")).click();
+  await driver.findElement(By.id("save")).click();
 
 
   await driver.quit();
