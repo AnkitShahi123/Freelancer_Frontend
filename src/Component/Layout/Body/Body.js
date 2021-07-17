@@ -34,7 +34,7 @@ render() {
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
-        <Route pqath="/profileClient" component={profileClient} />
+        <Route path="/profileClient" component={profileClient} />
         <Route path="/editclientprofile/:id" component={editclientProfile} />
 
         {/* For Freelancer  */}
