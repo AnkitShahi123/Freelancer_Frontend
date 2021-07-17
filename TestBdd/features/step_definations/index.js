@@ -3,6 +3,11 @@ const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
 const { Builder, By, Key, until, sleep } = require("selenium-webdriver");
 const { delay } = require("../utils/delay");
 
+
+
+
+//Rgistration functionality
+
 // Given("Test registration functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
 //   await driver.get("http://localhost:4200/register");
@@ -19,6 +24,9 @@ const { delay } = require("../utils/delay");
 //   expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
 //   // await driver.quit();
 // });
+
+//login functionality 
+
 // Given("Test login functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
 //   await driver.get("http://localhost:4200/login/");
@@ -30,6 +38,8 @@ const { delay } = require("../utils/delay");
 
 //   await driver.quit();
 // });
+
+//Post job functionality
 
 // Given("Test PostJob functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
@@ -49,6 +59,8 @@ const { delay } = require("../utils/delay");
 //   // await driver.quit();
 // });
 
+//Search Functionality
+
 // Given("Test Search functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
 //   await driver.get("http://localhost:/4200showAllJob/");
@@ -59,6 +71,8 @@ const { delay } = require("../utils/delay");
 
 //   await driver.quit();
 // });
+
+//Apply functionality 
 
 // Given("Test Apply functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
