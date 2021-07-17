@@ -3,89 +3,150 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 const axios = require("axios").default;
 
 class jobAdd extends Component {
+  state = {
+    worktitle: "",
+    worktype: "",
+    workdescription: "",
+    requiredexperience: "",
+    estimatedprice: "",
+    photo: "",
+    config: {
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    },
+  };
+  inputHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+  fileHandler = (e) => {
+    this.setState({
+      photo: e.target.files[0],
+    });
+  };
+
+  workAddMethod = (e) => {
+    e.preventDefault();
+    const data = new FormData(); // new line
+    var image = this.refs.photo.files[0];
+    data.append("worktitle", this.state.worktitle);
+    data.append("worktype", this.state.worktype);
+    data.append("workdescription", this.state.workdescription);
+    data.append("requiredexperience", this.state.requiredexperience);
+    data.append("estimatedprice", this.state.estimatedprice);
+    data.append("photo", image);
+
+    axios({
+      method: "post",
+      url: "https://freelancerbackend.herokuapp.com/work/add",
+      data: data,
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    })
+      .then((response) => {
+        console.log(response);
+        alert("work has been added");
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert("Error adding work");
+      });
+  };
   render() {
     return (
       <>
         <form>
           <div class="auth-inner-addform">
-            <h1>POST JOB</h1>
+            <h1>POST work</h1>
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Job Title</label>
-                            <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Job Title"
-                            ></input>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label>Job Type</label>
-                            <select class="form-control custom-select">
-                            <option>Full Time</option>
-                            <option>Part Time</option>
-                            <option>Intrnship</option>
-                            <option>Freelance</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>                
-                
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="form-group">
+                    <label>work Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Work Title"
+                      value={this.state.worktitle}
+                      name="worktitle"
+                      onChange={this.inputHandler}
+                    />
+                  </div>
+                </div>
+              </div>
+
               <div class="row">
                 <div class="col-lg-6 col-md-6">
                   <div class="form-group">
-                    <label>Job Type</label>
-                    <select class="form-control custom-select">
-                      <option>Full Time</option>
-                      <option>Part Time</option>
-                      <option>Intrnship</option>
-                      <option>Freelance</option>
-                    </select>
+                    <label>Work Type</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Job type"
+                      value={this.state.worktype}
+                      name="worktype"
+                      onChange={this.inputHandler}
+                    />
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                   <div class="form-group">
-                    <label>Salary</label>
-                    <input type="text" class="form-control" placeholder="Estimated Salary"></input>
+                    <label>Estimated Price</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter estimated price"
+                      value={this.state.estimatedprice}
+                      name="estimatedprice"
+                      onChange={this.inputHandler}
+                    />
                   </div>
                 </div>
               </div>
               <div class="col-lg-12 col-md-12">
-                    <div class="form-group">
-                        <label>Job Description</label>
-                        <input type="text" class="form-control" placeholder=""></input>
-                    </div>
+                <div class="form-group">
+                  <label>Work Description</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter work description"
+                    value={this.state.workdescription}
+                    name="workdescription"
+                    onChange={this.inputHandler}
+                  />
                 </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="form-group">
-                        <label>Job Requirements</label>
-                        <input type="text" class="form-control" placeholder=""></input>
-                    </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                  <label>Required experience</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter Job Title"
+                    value={this.state.requiredexperience}
+                    name="requiredexperience"
+                    onChange={this.inputHandler}
+                  />
                 </div>
+              </div>
 
-                <div class="row">
+              <div class="row">
                 <div class="col-lg-6 col-md-6">
                   <div class="form-group">
                     <label>Image</label>
-                    <input type="file" class="form-control" placeholder=""></input>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="form-group">
-                    <label>Creator</label>
-                    <input type="text" class="form-control" placeholder=""></input>
+                    <input type="file" name="photo" ref="photo"/>
                   </div>
                 </div>
               </div>
 
               <p>
-                    <button variant="secondary" className="btn btn-primary btn-block">Submit</button>
-
-                </p>
-
+                <button
+                  variant="secondary"
+                  className="btn btn-primary btn-block"
+                  onClick={this.workAddMethod}
+                >
+                  Submit
+                </button>
+              </p>
             </div>
           </div>
         </form>
