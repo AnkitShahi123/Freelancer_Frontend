@@ -21,7 +21,7 @@ export default class editUserProfile extends Component {
     config: {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     },
-    id: "",
+    id:  this.props.match.params.id,
   };
 
   changeHandler = (e) => {
@@ -65,7 +65,7 @@ export default class editUserProfile extends Component {
     e.preventDefault();
     alert(this.state.id);
     const data = new FormData();
-    data.append("id", this.state.id);
+   // data.append("id", this.state.id);
     data.append("firstname", this.state.firstname);
     data.append("lastname", this.state.lastname);
     data.append("userbio", this.state.userbio);
@@ -78,7 +78,7 @@ export default class editUserProfile extends Component {
     
     axios({
       method: "put",
-      url: "https://freelancerbackend.herokuapp.com/editProfileFreelancer/" + this.state.id,
+      url: "https://freelancerbackend.herokuapp.com/profile/editProfileFreelancer/" + this.state.id,
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
