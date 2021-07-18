@@ -33,6 +33,7 @@ class Header extends Component {
                                
                                 <Nav.Link ><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
                                 <Nav.Link><Link className="navbarText" to="/profileClient">Profile</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/addJob">Add Job</Link></Nav.Link>
                                 
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 

@@ -121,7 +121,7 @@ class jobAdd extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter Job Title"
+                    placeholder="Enter required experience"
                     value={this.state.requiredexperience}
                     name="requiredexperience"
                     onChange={this.inputHandler}
