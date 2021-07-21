@@ -9,7 +9,12 @@ class home extends Component {
       <div class="slider-area ">
           {/* <!-- Mobile Menu --> */}
           <div class="slider-active">
-          <div class="single-slider slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg" >
+          <div class="single-slider slider-height d-flex align-items-center" 
+         style={{ 
+            backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/hero/h1_hero.jpg")` 
+          }}
+        //   data-background="assets/img/hero/h1_hero.jpg" 
+          >
                   <div class="container">
                       <div class="row">
                           <div class="col-xl-6 col-lg-9 col-md-10">
@@ -163,7 +168,12 @@ class home extends Component {
         {/* <!-- Our Services End --> */}
 
         {/* <!-- Online CV Area Start --> */}
-         <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="assets/img/gallery/cv_bg.jpg">
+         <div class="online-cv cv-bg section-overly pt-90 pb-120" 
+         style={{ 
+            backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/gallery/cv_bg.jpg")` 
+          }}
+        //   data-background="assets/img/gallery/cv_bg.jpg"
+          >
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
@@ -279,7 +289,12 @@ class home extends Component {
         {/* <!-- Featured_job_end --> */}
 
         {/* <!-- How  Apply Process Start--> */}
-        <div class="apply-process-area apply-bg pt-150 pb-150" data-background="assets/img/gallery/how-applybg.png">
+        <div class="apply-process-area apply-bg pt-150 pb-150" 
+        style={{ 
+            backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/gallery/how-applybg.png")` 
+          }}
+        // data-background="assets/img/gallery/how-applybg.png"
+        >
             <div class="container">
                 {/* <!-- Section Tittle --> */}
                 <div class="row">
