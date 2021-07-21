@@ -1,54 +1,49 @@
 import React, { Component, useState } from "react";
-import { Container, Row, Col,Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Route, Link } from "react-router-dom";
 const axios = require("axios").default;
 
 class showAllJob extends Component {
-  // state = {
-  //   works: [],
-  //   config: {
-  //     headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
-  //   },
-  // };
+  state = {
+    works: [],
+    config: {
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    },
+  };
 
-  // componentDidMount() {
-  //   axios
-  //     .get("http://localhost:89/work/showall")
-  //     .then((response) => {
-  //       console.log(response);
-  //       this.setState({
-  //         works: response.data,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //       alert("Error. Please Login first");
-  //     });
-  // }
-
-  // deletework = (id) => {
-  //       axios
-  //     .delete("http://localhost:89/work/delete/" + id, this.state.config)
-  //     .then((response) => {
-  //       console.log(response);
-  //       alert("Delete successfull");
-  //     })
-  //     .catch((err) => {
-  //       alert("Delete unsuccessfull");
-  //     });
-
-
-  // };
-
- 
+  componentDidMount() {
+    axios
+      .get("https://freelancerbackend.herokuapp.com/work/showall")
+      .then((response) => {
+        console.log(response.data);
+        console.log(response.data.worktitle)
+        this.setState({
+          works: response.data
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Error. Please Login first");
+      });
+  }
 
   render() {
-    
-      var showStatus = (
-        <div>
-          <p></p>
+    var showStatus = (
+      <div>
+        <p>gg</p>
+{/* 
+        {
+          this.state.works.map((workz)=>{
+            return (
+              <div>
+                
+              </div>
+            )
 
-          {this.state.works.map((work) => {
+          })
+        } */}
+
+        {/* {this.state.works.map((work) => {
             return (
               <div className="login">
 
@@ -77,8 +72,8 @@ class showAllJob extends Component {
                             <h6 class="mb-0 text-sm">{work.requiredexperience}</h6>
                           </div>
                           <div class="row px-3 mb-4">
-                            <h6 class="mb-0 text-sm">work Salary:  </h6>
-                            <h6 class="mb-0 text-sm">{work.workprice}</h6>
+                            <h6 class="mb-0 text-sm">Estimated Price:  </h6>
+                            <h6 class="mb-0 text-sm">{work.estimatedprice}</h6>
                           </div>
                           <div class="row px-3 mb-4">
                             <h6 class="mb-0 text-sm">Company Name  :  </h6>
@@ -104,14 +99,14 @@ class showAllJob extends Component {
 
               </div>
             );
-          })}
-        </div>
-      );
+          })} */}
+      </div>
+    );
     return (
       <Container>
-         &nbsp; &nbsp;
-        {/* <Row>{showStatus}</Row> */}
-        <h1>This is show all section</h1>
+        &nbsp; &nbsp;
+        <Row>{showStatus}</Row>
+        {/* <h1>This is show all section</h1> */}
       </Container>
     );
   }

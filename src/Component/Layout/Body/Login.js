@@ -29,10 +29,11 @@ export default class Login extends Component {
         localStorage.setItem("role", response.data.role);
         localStorage.setItem("firstname", response.data.firstname);
         localStorage.setItem("email", response.data.email);
+        alert("Successfully logged in!!")
         if (localStorage.getItem("role") === "Client") {
-          window.location.href = "/addJob";
+          window.location.href = "/";
         } else if (localStorage.getItem("role") === "Freelancer") {
-          window.location.href = "/showAllJob";
+          window.location.href = "/";
         } else {
             window.location.href = "/adminpanel";
         }
@@ -43,12 +44,12 @@ export default class Login extends Component {
   };
 
   render() {
-    if (this.state.loginChk === true) {
-      return <Redirect to="/showAllJob" />;
-    }
-    if (localStorage.getItem("token")) {
-      return <Redirect to="/showAllJob" />;
-    }
+    // if (this.state.loginChk === true) {
+    //   return <Redirect to="/showAllJob" />;
+    // }
+    // if (localStorage.getItem("token")) {
+    //   return <Redirect to="/showAllJob" />;
+    // }
     return (
       <div className="login">
         <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
