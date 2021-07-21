@@ -8,6 +8,7 @@ import profileClient from "../Client/profileClient";
 import addJob from "../Client/addJob";
 import showAllJob from "../Freelancer/showAllJob";
 import findJobs from "../Common/findJobs";
+import jobDetails from "../Common/jobDetails";
 
 import {
   BrowserRouter as Router,
@@ -42,6 +43,7 @@ render() {
         <Route path="/showAllJob" component={showAllJob} />
         <Route path="/profile" component={Profile} />
         <Route path="/findJobs" component={findJobs} />
+        <Route path="/jobDetails" component={jobDetails} />
         <Route path="/edituserprofile/:id" component={editUserProfile} />
       </Switch>
     </div>
