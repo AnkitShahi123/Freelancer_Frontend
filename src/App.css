@@ -1,7 +1,6 @@
-.App {
-  text-align: center;
+/* .App {
   background-color: #e2e8f0;  
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -591,3 +590,32 @@ body{
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0);
 }
+
+
+
+#navigation a{
+  text-decoration: none !important;
+}
+
+.row a{
+  text-decoration: none !important;
+}
+
+/* .flaticon-tour:before {
+  content: "\f100";
+}
+
+
+.flaticon-cms:before {
+  content: "\f102";
+} */
+
+/* .slider-area{
+  width: 1903px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  opacity: 1;
+  background-image: url(assets/img/hero/h1_hero.jpg);
+} */
