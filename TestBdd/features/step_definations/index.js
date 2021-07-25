@@ -99,14 +99,26 @@ const { delay } = require("../utils/delay");
 // });
 
 
-Given("Test UpdateClient functionality", { timeout: 30000 }, async function () {
+// Given("Test UpdateClient functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:4201/profileClient");
+//   await driver.findElement(By.id("cname")).sendKeys("aavash@client.com");
+//   await driver.findElement(By.id("cphone")).sendKeys("aavash@client.com");
+//   await driver.findElement(By.id("caddress")).sendKeys("aavash@client.com");
+//   await driver.sleep(delay);
+//   await driver.findElement(By.id("cupdate")).click();
+
+
+//   await driver.quit();
+// });
+
+// view freelance record functionality
+
+Given("Test FreelancerRecord functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:4201/profileClient");
-  await driver.findElement(By.id("cname")).sendKeys("aavash@client.com");
-  await driver.findElement(By.id("cphone")).sendKeys("aavash@client.com");
-  await driver.findElement(By.id("caddress")).sendKeys("aavash@client.com");
+  await driver.get("http://localhost:4200/myApplied");
   await driver.sleep(delay);
-  await driver.findElement(By.id("cupdate")).click();
+  // await driver.findElement(By.id("deleterecord")).click();
 
 
   await driver.quit();
