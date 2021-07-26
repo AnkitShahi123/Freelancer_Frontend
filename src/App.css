@@ -623,3 +623,31 @@ body{
 /* .single-slider{
   background-image: url("about.jpg");
 } */
+
+
+/* .head-btn2 {
+  background: none;
+  border: 1px solid #fb246a;
+  color: #fb246a;
+} */
+
+.head-btn1{
+  background: #fb246a;
+  -moz-user-select: none;
+  text-transform: capitalize;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.apply-btn2{
+  color: white;
+  background: #fb246a;
+  width: 36%;
+  
+}
+login-img {
+  vertical-align: middle;
+  border-style: none;
+  margin-left: -100px;
+}
