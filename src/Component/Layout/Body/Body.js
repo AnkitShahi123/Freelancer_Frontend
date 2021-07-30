@@ -6,6 +6,7 @@ import editUserProfile from "../Freelancer/edituserprofile";
 import editclientProfile from "../Client/editclientprofile";
 import profileClient from "../Client/profileClient";
 import addJob from "../Client/addJob";
+import updatework from "../Client/updatework";
 import showAllJob from "../Freelancer/showAllJob";
 import findJobs from "../Common/findJobs";
 import jobDetails from "../Common/jobDetails";
@@ -40,6 +41,7 @@ render() {
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
+        <Route path="/updatework/:id" component={updatework} />
         <Route path="/myListings" component={myListings} />
         <Route path="/applicantsList/:id" component={applicantsList} />
         <Route path="/profileClient" component={profileClient} />
