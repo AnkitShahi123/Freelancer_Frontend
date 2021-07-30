@@ -21,6 +21,7 @@ import {
 import adminpanel from "../Adminpannel/adminpanel";
 import myApplied from "../Freelancer/myapplied";
 import myListings from "../Client/myListings";
+import applicantsList from "../Client/applicantsList";
 const {Component}=require("react");
 
 export default class Body extends Component {
@@ -40,6 +41,7 @@ render() {
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
         <Route path="/myListings" component={myListings} />
+        <Route path="/applicantsList/:id" component={applicantsList} />
         <Route path="/profileClient" component={profileClient} />
         <Route path="/editclientprofile/:id" component={editclientProfile} />
 
