@@ -93,10 +93,30 @@ class findDetails extends Component {
         alert("Error. Please Login first");
       });
   }
+
+  savework = (id) => {
+    
+
+    axios({
+      method: "post",
+      url: "http://localhost:89/work/savework/" + id,
+      data: this.state,
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    })
+      .then((response) => {
+        Swal.fire("Good job!", "You Saved this job for future!", "success");
+      })
+      .catch((err) => {
+        console.log(this.state.config);
+        console.log(err.response);
+        Swal.fire("Oh NOO", "Saving failed!", "failed");
+      });
+  };
+
   applywork = (id) => {
     // alert(this.state.config.headers.authorization)
     Swal.fire({
-      title: "Apply for "+this.state.worktitle +" now?",
+      title: "Apply for " + this.state.worktitle + " now?",
       icon: "warning",
 
       confirmButtonColor: "#3085d6",
@@ -265,6 +285,16 @@ class findDetails extends Component {
                       onClick={this.applywork.bind(this, this.state.workid)}
                     >
                       Apply for work.
+                    </Button>{" "}
+                  </div>
+                  <div class="row mb-3 px-3">
+                    {" "}
+                    <Button
+                      type="submit"
+                      class="btn btn-blue text-center"
+                      onClick={this.savework.bind(this, this.state.workid)}
+                    >
+                      Save this work
                     </Button>{" "}
                   </div>
                 </div>

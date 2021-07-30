@@ -5,9 +5,9 @@ import { Card,Button } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 const axios = require('axios').default;
 
-export default class myApplied extends Component {
+export default class mysaved extends Component {
     state = {
-        appliedworks: [],
+        savedworks: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
@@ -17,13 +17,13 @@ export default class myApplied extends Component {
 
         axios({
             method: 'get',
-            url: 'http://localhost:89/work/showMyApplied',
+            url: 'http://localhost:89/work/showMySaved',
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
 
                 this.setState({
-                    appliedworks: response.data,
+                    savedworks: response.data,
 
                 })
             })
@@ -40,7 +40,7 @@ export default class myApplied extends Component {
 
 
         Swal.fire({
-            title: 'Delete this application?',
+            title: 'Delete this saved work?',
             icon: 'warning',
       
             confirmButtonColor: '#3085d6',
@@ -49,13 +49,13 @@ export default class myApplied extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/deleteMyApplied/' + id, this.state.config)
+                axios.delete('http://localhost:89/work/deleteMySaved/' + id, this.state.config)
                 .then((response) => {
                     console.log(response)
                     //alert("Delete successfull")
                     Swal.fire(
                         'Deleted',
-                        'Your have successfully deleted this application.',
+                        'Your have successfully deleted this saved work.',
                         'success'
                       )
                     window.location.reload()
@@ -95,7 +95,7 @@ export default class myApplied extends Component {
                         <p></p>
 
                         {
-                            this.state.appliedworks.map((work) => {
+                            this.state.savedworks.map((work) => {
                                 return (<div>
                                     <div class="py-5 service-22">
                                         <div class="container">
@@ -116,18 +116,11 @@ export default class myApplied extends Component {
                                                         <h6 class="font-weight-light">work Price: <span class="text-megna">{work.workid.estimatedprice}</span></h6>
                                                         <h6 class="font-weight-light">Email of client: <span class="text-megna">{work.workid.creator.email}</span></h6>
                                                         <h6 class="font-weight-light">Client company name: <span class="text-megna">{work.workid.creator.company}</span></h6>
-                                                        <h6 class="font-weight-light">My Bidding Price: <span class="text-megna">${work.myamount}</span></h6>
-                                                        <h6 class="font-weight-light">My Video resume: <span class="text-megna">{work.video}</span></h6>
-                                                        <h6 class="font-weight-light">Applied on: <span class="text-megna">{work.createdAt}</span></h6>
+                                                    
+                                                        
+                                                        <h6 class="font-weight-light">saved on: <span class="text-megna">{work.createdAt}</span></h6>
 
-                                                        {
-                                                            work.confirmStatus === "Confirmed"
-                                                                ? (<p><h1>Your work application has been confirmed by client.</h1></p>)
-                                                                : work.confirmStatus === "denied"
-                                                                    ? (<p><h2>Your work application has been denied by the client.</h2> </p>)
-
-                                                                    : (<p class=".text-primary"><h2>Your work application is not reviewed by client.</h2></p>)
-                                                        }
+                                                    
 
                                                         <Button class="btn btn-info-gradiant btn-md text-white border-0" onClick={this.deletework.bind(this, work._id)}><span>Delete this application</span></Button>
 
