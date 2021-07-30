@@ -153,13 +153,27 @@ class showAllJob extends Component {
 
                         <div class="row mb-3 px-3">
                           {" "}
-                          <button
+                          {/* <button
                             type="submit"
                             class="btn btn-blue text-center"
                             onClick={this.applywork.bind(this, work._id)}
                           >
                             Apply for work.
-                          </button>{" "}
+                          </button>{" "} */}
+                          <Button>
+                            <Link
+                              to={"/jobDetails/" + work._id}
+                            >
+                              {" "}
+                              <button
+                                class="btn btn-info-gradiant btn-md text-white border-0"
+                                href="#f20"
+                              >
+                                <span>Apply</span>
+                              </button>
+                            </Link>{" "}
+                            &nbsp; &nbsp; &nbsp;
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -182,9 +196,8 @@ class showAllJob extends Component {
             className="form-control"
             onChange={this.changeHandler}
             placeholder="Type something"
-            onType={this.search}
+            required
           ></input>
-
           <Button
             type="submit"
             class="btn btn-blue text-center"

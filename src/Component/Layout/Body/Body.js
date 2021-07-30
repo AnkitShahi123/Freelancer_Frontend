@@ -44,7 +44,7 @@ render() {
         <Route path="/showAllJob" component={showAllJob} />
         <Route path="/profile" component={Profile} />
         <Route path="/findJobs" component={findJobs} />
-        <Route path="/jobDetails" component={jobDetails} />
+        <Route path="/jobDetails/:id" component={jobDetails} />
         <Route path="/contact" component={contact} />
         <Route path="/edituserprofile/:id" component={editUserProfile} />
       </Switch>
