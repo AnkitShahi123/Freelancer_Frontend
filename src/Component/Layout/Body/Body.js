@@ -19,6 +19,8 @@ import {
 } from "react-router-dom";
 
 import adminpanel from "../Adminpannel/adminpanel";
+import myApplied from "../Freelancer/myapplied";
+import myListings from "../Client/myListings";
 const {Component}=require("react");
 
 export default class Body extends Component {
@@ -37,6 +39,7 @@ render() {
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />
+        <Route path="/myListings" component={myListings} />
         <Route path="/profileClient" component={profileClient} />
         <Route path="/editclientprofile/:id" component={editclientProfile} />
 
@@ -45,6 +48,7 @@ render() {
         <Route path="/profile" component={Profile} />
         <Route path="/findJobs" component={findJobs} />
         <Route path="/jobDetails/:id" component={jobDetails} />
+        <Route path="/myApplied" component={myApplied} />
         <Route path="/contact" component={contact} />
         <Route path="/edituserprofile/:id" component={editUserProfile} />
       </Switch>

@@ -7,19 +7,19 @@ const axios = require("axios").default;
 class findDetails extends Component {
   state = {
     config: {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      },
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    },
+    workid: "",
     worktitle: "",
     worktype: "",
     workdescription: "",
     requiredexperience: "",
     estimatedprice: "",
-    skills:"",
-    vacancy:"",
+    skills: "",
+    vacancy: "",
     photo: "",
     creator: "",
     createdAt: "",
-    
     video: "",
     firstname: "",
     lastname: "",
@@ -34,8 +34,8 @@ class findDetails extends Component {
     company: "",
     foundedin: "",
     userbio: "",
-    myamount:"",
-    video:"",
+    myamount: "",
+    video: "",
     id: this.props.match.params.id,
   };
   inputHandler = (e) => {
@@ -54,35 +54,38 @@ class findDetails extends Component {
       .get("http://localhost:89/work/showSingle/" + this.state.id)
       .then((response) => {
         this.setState({
-            config: {
-                headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-              },
-            worktitle:response.data.worktitle,
-            worktype:response.data.worktype,
-            workdescription:response.data.workdescription,
-            requiredexperience:response.data.requiredexperience,
-            estimatedprice:response.data.estimatedprice,
-            skills:response.data.skills,
-            vacancy:response.data.vacancy,
-            
-            photo:response.data.photo,
-            // creator:response.data.creator._id,
-            createdAt:response.data.createdAt,
-           
-            video: response.data.video,
-            firstname: response.data.creator.firstname,
-            lastname: response.data.creator.lastname,
-            email: response.data.creator.email,
-            address: response.data.creator.address,
-            phone: response.data.creator.phone,
-            age: response.data.creator.age,
-            photos: response.data.creator.photo,
-            role: response.data.creator.role,
-            projects: response.data.creator.projects,
-        
-            company: response.data.creator.company,
-            foundedin: response.data.creator.foundedin,
-            userbio: response.data.creator.userbio,
+          config: {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          },
+          workid: response.data._id,
+          worktitle: response.data.worktitle,
+          worktype: response.data.worktype,
+          workdescription: response.data.workdescription,
+          requiredexperience: response.data.requiredexperience,
+          estimatedprice: response.data.estimatedprice,
+          skills: response.data.skills,
+          vacancy: response.data.vacancy,
+
+          photo: response.data.photo,
+          // creator:response.data.creator._id,
+          createdAt: response.data.createdAt,
+
+          video: response.data.video,
+          firstname: response.data.creator.firstname,
+          lastname: response.data.creator.lastname,
+          email: response.data.creator.email,
+          address: response.data.creator.address,
+          phone: response.data.creator.phone,
+          age: response.data.creator.age,
+          photos: response.data.creator.photo,
+          role: response.data.creator.role,
+          projects: response.data.creator.projects,
+
+          company: response.data.creator.company,
+          foundedin: response.data.creator.foundedin,
+          userbio: response.data.creator.userbio,
         });
       })
       .catch((err) => {
@@ -90,6 +93,40 @@ class findDetails extends Component {
         alert("Error. Please Login first");
       });
   }
+  applywork = (id) => {
+    // alert(this.state.config.headers.authorization)
+    Swal.fire({
+      title: "Apply for "+this.state.worktitle +" now?",
+      icon: "warning",
+
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Apply",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios({
+          method: "post",
+          url: "http://localhost:89/work/applywork/" + id,
+          data: this.state,
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((err) => {
+            console.log(this.state.config);
+            console.log(err.response);
+            alert("work apply unsuccessfull");
+          });
+
+        Swal.fire(
+          "Applied",
+          "Your have successfully applied to this work.",
+          "success"
+        );
+      }
+    });
+  };
 
   render() {
     return (
@@ -126,7 +163,11 @@ class findDetails extends Component {
                   <div class="job-items">
                     <div class="company-img company-img-details">
                       <a href="#">
-                        <img  src={`http://localhost:89/${this.state.photo}`} alt="" style={{height: '80px'}} />
+                        <img
+                          src={`http://localhost:89/${this.state.photo}`}
+                          alt=""
+                          style={{ height: "80px" }}
+                        />
                       </a>
                     </div>
                     <div class="job-tittle">
@@ -136,7 +177,8 @@ class findDetails extends Component {
                       <ul>
                         <li>{this.state.creator.company}</li>
                         <li>
-                          <i class="fas fa-map-marker-alt"></i>{this.state.creator.address}
+                          <i class="fas fa-map-marker-alt"></i>
+                          {this.state.creator.address}
                         </li>
                         <li>$ {this.state.estimatedprice}</li>
                       </ul>
@@ -151,9 +193,7 @@ class findDetails extends Component {
                     <div class="small-section-tittle">
                       <h4>Work Description</h4>
                     </div>
-                    <p>
-                    {this.state.workdescription}
-                    </p>
+                    <p>{this.state.workdescription}</p>
                   </div>
                   <div class="post-details2  mb-50">
                     {/* <!-- Small Section Tittle --> */}
@@ -162,7 +202,6 @@ class findDetails extends Component {
                     </div>
                     <ul>
                       <li>{this.state.skills}</li>
-                      
                     </ul>
                   </div>
                   <div class="post-details2  mb-50">
@@ -172,7 +211,6 @@ class findDetails extends Component {
                     </div>
                     <ul>
                       <li>{this.state.requiredexperience}</li>
-                      
                     </ul>
                   </div>
                 </div>
@@ -195,26 +233,39 @@ class findDetails extends Component {
                       Vacancy : <span>{this.state.vacancy}</span>
                     </li>
                     <li>
-                     Estimated Salary Salary : <span>${this.state.estimatedprice}</span>
+                      Estimated Salary Salary :{" "}
+                      <span>${this.state.estimatedprice}</span>
                     </li>
-                    
                   </ul>
                   <div class="small-section-tittle">
-                      <h4>To apply enter your biiding amount and upload a video and press on apply now.</h4>
-                    </div>
-                    <input
-                        type="text"
-                        class="form-control"
-                        value={this.state.myamount}
-                        name="myamount"
-                        onChange={this.inputHandler}
-                        required
-                      />
-                         <input type="file" name="video" class="form-rounded" ref="video" />
-                  <div class="apply-btn2">
-                    <a href="#" class="btn">
-                      Apply Now
-                    </a>
+                    <h4>
+                      To apply enter your biiding amount and upload a video and
+                      press on apply now.
+                    </h4>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={this.state.myamount}
+                    name="myamount"
+                    onChange={this.inputHandler}
+                    required
+                  />
+                  <input
+                    type="file"
+                    name="video"
+                    class="form-rounded"
+                    ref="video"
+                  />
+                  <div class="row mb-3 px-3">
+                    {" "}
+                    <Button
+                      type="submit"
+                      class="btn btn-blue text-center"
+                      onClick={this.applywork.bind(this, this.state.workid)}
+                    >
+                      Apply for work.
+                    </Button>{" "}
                   </div>
                 </div>
                 <div class="post-details4  mb-50">
@@ -223,10 +274,14 @@ class findDetails extends Component {
                     <h4>Company Information</h4>
                   </div>
                   <span>{this.state.creator.company}</span>
-                 
+
                   <ul>
                     <li>
-                      Owner: <span>{this.state.creator.firstname} {this.state.creator.lastname} </span>
+                      Owner:{" "}
+                      <span>
+                        {this.state.creator.firstname}{" "}
+                        {this.state.creator.lastname}{" "}
+                      </span>
                     </li>
                     <li>
                       Phone : <span>{this.state.creator.phone}</span>
@@ -235,7 +290,7 @@ class findDetails extends Component {
                       Email: <span>{this.state.creator.email}</span>
                     </li>
                     <li>
-                    Formed in: <span>{this.state.creator.foundedin}</span>
+                      Formed in: <span>{this.state.creator.foundedin}</span>
                     </li>
                   </ul>
                 </div>
@@ -243,7 +298,7 @@ class findDetails extends Component {
             </div>
           </div>
         </div>
-        {/* <!-- job post company End --> */}
+        {/* <!-- work post company End --> */}
       </main>
     );
   }
