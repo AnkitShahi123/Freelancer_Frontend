@@ -30,7 +30,6 @@ class myListings extends Component {
   }
 
   deletework = (id) => {
-    // alert(this.state.config.headers.authorization)
     axios
       .delete("http://localhost:89/work/delete/" + id, this.state.config)
       .then((response) => {
@@ -39,7 +38,6 @@ class myListings extends Component {
         window.location.reload();
       })
       .catch((err) => {
-        //console.log(err.response)
         alert("Delete unsuccessfull");
       });
   };
