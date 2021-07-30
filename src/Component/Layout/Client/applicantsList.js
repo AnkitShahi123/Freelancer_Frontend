@@ -41,7 +41,7 @@ export default class applicantsList extends Component {
   confirmMethod = (id) => {
     axios({
       method: "put",
-      url: "http://localhost:89/work/approveWork/" + id,
+      url: "http://localhost:89/work/approvework/" + id,
       data: { confirmStatus: "Confirmed" },
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -60,7 +60,7 @@ export default class applicantsList extends Component {
     
     axios({
       method: "put",
-      url: "http://localhost:89/work/approveWork/" + id,
+      url: "http://localhost:89/work/approvework/" + id,
       data: { confirmStatus: "denied" },
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
