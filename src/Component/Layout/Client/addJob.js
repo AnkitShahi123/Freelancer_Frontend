@@ -9,6 +9,8 @@ class jobAdd extends Component {
     workdescription: "",
     requiredexperience: "",
     estimatedprice: "",
+    vacancy: "",
+    skills: "",
     photo: "",
     config: {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -34,6 +36,8 @@ class jobAdd extends Component {
     data.append("workdescription", this.state.workdescription);
     data.append("requiredexperience", this.state.requiredexperience);
     data.append("estimatedprice", this.state.estimatedprice);
+    data.append("vacancy", this.state.vacancy);
+    data.append("skills", this.state.skills);
     data.append("photo", image);
 
     axios({
@@ -97,6 +101,32 @@ class jobAdd extends Component {
                       placeholder="Enter estimated price"
                       value={this.state.estimatedprice}
                       name="estimatedprice"
+                      onChange={this.inputHandler}
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <label>Vacancy</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Vacancy"
+                      value={this.state.vacancy}
+                      name="vacancy"
+                      onChange={this.inputHandler}
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <label>Skills</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Skills"
+                      value={this.state.skills}
+                      name="skills"
                       onChange={this.inputHandler}
                     />
                   </div>
