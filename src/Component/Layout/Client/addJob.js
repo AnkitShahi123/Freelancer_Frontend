@@ -58,14 +58,35 @@ class jobAdd extends Component {
   render() {
     return (
       <>
+
+{/* // <!-- Hero Area Start--> */}
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" 
+            style={{ 
+                backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/hero/about.jpg")` 
+              }}
+            // data-background="assets/img/hero/about.jpg"
+            >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>Post Jobs</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {/* // <!-- Hero Area End --> */}
         <form>
           <div class="auth-inner-addform">
-            <h1>POST work</h1>
+            <h1>POST JOBS</h1>
             <div class="container">
               <div class="row">
                 <div class="col-lg-12 col-md-12">
                   <div class="form-group">
-                    <label>work Title</label>
+                    <label>Work Title</label>
                     <input
                       type="text"
                       className="form-control"
