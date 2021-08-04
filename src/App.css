@@ -135,7 +135,7 @@ body{
 /* for add-flight */
 .auth-inner-addform {
   width: 40%;
-  height: 740px;
+  height: 800px;
   margin: 20px 20px 20px 700px;
   background: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
@@ -145,11 +145,67 @@ body{
   text-align: left;
 }
 
+
+
 .btn-primary{
   height: 50px;
 }
 
 
+/* search button */
+
+/* .btn{
+  width: 200px !important;
+  margin-top: -20px !important;
+} */
+
+.btn_search{
+    height: 50px;
+    text-align: center;
+    width: 149px;
+    font-size: 21px;
+    background: #01d28e !important;
+    border: 1px solid #01d28e !important;
+    color: #fff !important;
+    margin-top: -20px !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_learn{
+  height: 60px;
+  text-align: center;
+  width: 160px;
+  font-size: 21px;
+  background: #01d28e !important;
+  border: 1px solid #01d28e !important;
+  color: #fff !important;
+  margin-top: -20px !important;
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.btn_learnMore{
+  color: #01d28e;
+}
+
+.clear-data{
+  margin-top: 10%;
+  color: #fff;
+  margin-left: -92%;
+  font-size: 20px;
+}
+
+.search-bar{
+  margin-top: 13px;
+}
 
 
 
