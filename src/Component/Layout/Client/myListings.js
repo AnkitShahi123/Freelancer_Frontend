@@ -13,7 +13,6 @@ class myListings extends Component {
   };
 
   componentDidMount() {
-
     axios({
       method: "get",
       url: "http://localhost:89/work/showMyListings",
@@ -44,11 +43,134 @@ class myListings extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <div>
+      <div>
+        {/* // <!-- Hero Area Start--> */}
+        <div class="slider-area ">
+          <div
+            class="single-slider section-overly slider-height2 d-flex align-items-center"
+            style={{
+              backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/hero/about.jpg")`,
+            }}
+            // data-background="assets/img/hero/about.jpg"
+          >
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="hero-cap text-center">
+                    <h2>My Posting</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="ftco-section">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6 text-center mb-5"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-wrap">
+                  <table class="table table-responsive-xl">
+                    <thead>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <th>Email</th>
+                        <th>Company Name</th>
+                        <th>Actions</th>
+                        <th>&nbsp;</th>
+                      </tr>
+                    </thead>
+
+                    {this.state.works.map((work) => {
+                      return (
+                        <tbody>
+                          <tr class="alert" role="alert">
+                            <td>
+                              <label class="checkbox-wrap checkbox-primary">
+                                <input type="checkbox" checked />
+                                <span class="checkmark"></span>
+                              </label>
+                            </td>
+                            <td class="d-flex align-items-center">
+                              <div
+                                class="img"
+                                style={{
+                                  backgroundImage: "url(images/person_1.jpg)",
+                                }}
+                              ></div>
+                              <div class="pl-3 email">
+                                <span>{work.worktitle}</span>
+                                <span>Appilied Date: {work.createdAt}</span>
+                              </div>
+                            </td>
+                            <td>Markotto89</td>
+                            
+                            <td>
+                              {/* <button
+                                type="button"
+                                class="close"
+                                data-dismiss="alert"
+                                aria-label="Close"
+                              >
+                                <span aria-hidden="true">
+                                  <i class="fa fa-close"></i>
+                                </span>
+                              </button> */}
+                              <div class="row">
+                                <div class="col-md-4">
+                                {" "}
+                                  <button
+                                    type="submit"
+                                    class="btn btn-blue text-center"
+                                    onClick={this.deletework.bind(this, work._id)}
+                                  >
+                                    Delete this.
+                                  </button>{" "}
+                                </div>
+
+                                <div class="col-md-4">
+                                <Link to={"/updatework/" + work._id}>
+                              <div class="row mb-4 px-3">
+                                <button
+                                  type="submit"
+                                  class="btn btn-blue text-center"
+                                >
+                                  Update
+                                </button>{" "}
+                              </div>
+                            </Link>
+                                </div>
+                                <div class="col-md-4">
+                                <Link to={"/applicantsList/" + work._id}>
+                              <div class="row mb-4 px-3">
+                                <button type="submit" class="btn btn-blue">
+                                  Applicants
+                                </button>{" "}
+                              </div>
+                            </Link>
+                                </div>
+
+                              </div>
+                             
+                           
+                            
+                            </td>
+                          </tr>
+                        </tbody>
+                      );
+                    })}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* <div>
             <p></p>
-        
             {this.state.works.map((work) => {
               return (
                 <div className="login">
@@ -144,9 +266,8 @@ class myListings extends Component {
               );
             })}
           </div>
-          <Col></Col>
-        </Row>
-      </Container>
+          <Col></Col> */}
+      </div>
     );
   }
 }
