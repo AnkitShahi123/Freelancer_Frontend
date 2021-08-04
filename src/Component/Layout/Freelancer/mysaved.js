@@ -68,16 +68,6 @@ export default class mysaved extends Component {
             }
       
           })
-      
-
-
-
-
-
-
-
-     
-
     }
 
 
