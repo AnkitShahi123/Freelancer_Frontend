@@ -5,15 +5,12 @@ class home extends Component {
   render() {
     return (
       <main>
-      {/* // <!-- slider Area Start--> */}
       <div class="slider-area ">
-          {/* <!-- Mobile Menu --> */}
           <div class="slider-active">
           <div class="single-slider slider-height d-flex align-items-center" 
          style={{ 
             backgroundImage: `url("https://technext.github.io/jobfinderportal/assets/img/hero/h1_hero.jpg")` 
           }}
-        //   data-background="assets/img/hero/h1_hero.jpg" 
           >
                   <div class="container">
                       <div class="row">
@@ -23,28 +20,15 @@ class home extends Component {
                               </div>
                           </div>
                       </div>
-                      {/* <!-- Search Box --> */}
                       <div class="row">
-                          <div class="col-xl-8">
-                              {/* <!-- form --> */}
-                              <form action="#" class="search-box">
-                                  <div class="input-form">
-                                      <input type="text" placeholder="Job Tittle or keyword"/>
-                                  </div>
-                                  <div class="select-form">
-                                      <div class="select-itms">
-                                          <select name="select" id="select1">
-                                              <option value="">Location BD</option>
-                                              <option value="">Location PK</option>
-                                              <option value="">Location US</option>
-                                              <option value="">Location UK</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="search-form">
-                                      <a href="#">Find job</a>
-                                  </div>	
-                              </form>	
+                          <div class="col-xl-0">
+                              <div action="#" class="search-box">
+                              <button
+                                    class="btn_learn btn-blue text-center"
+                                    >
+                          <Link  to="/showAllJob" style={{color: '#fff'}} >Learn More</Link>
+                        </button>	
+                              </div>	
                           </div>
                       </div>
                   </div>
@@ -59,7 +43,7 @@ class home extends Component {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <span>FEATURED TOURS Packages</span>
+                            <span>FEATURED JOBS Packages</span>
                             <h2>Browse Top Categories </h2>
                         </div>
                     </div>
@@ -178,7 +162,7 @@ class home extends Component {
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         <div class="cv-caption text-center">
-                            <p class="pera1">FEATURED TOURS Packages</p>
+                            <p class="pera1">FEATURED JOBS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
                             <a href="#" class="border-btn2 border-btn4">Upload your cv</a>
                         </div>
