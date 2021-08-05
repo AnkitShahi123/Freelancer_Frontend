@@ -107,7 +107,7 @@ class myListings extends Component {
                               </div>
                             </td>
                             <td>Markotto89</td>
-                            
+
                             <td>
                               {/* <button
                                 type="button"
@@ -119,44 +119,50 @@ class myListings extends Component {
                                   <i class="fa fa-close"></i>
                                 </span>
                               </button> */}
-                              <div class="row">
+                              {/* <div class="row">
                                 <div class="col-md-4">
-                                {" "}
-                                  <button
+                                  {" "} */}
+                                  {/* <button
                                     type="submit"
                                     class="btn btn-blue text-center"
-                                    onClick={this.deletework.bind(this, work._id)}
+                                    onClick={this.deletework.bind(
+                                      this,
+                                      work._id
+                                    )}
                                   >
                                     Delete this.
-                                  </button>{" "}
-                                </div>
-
+                                  </button>{" "} */}
+                                   
+                                {/* </div>
                                 <div class="col-md-4">
-                                <Link to={"/updatework/" + work._id}>
-                              <div class="row mb-4 px-3">
-                                <button
-                                  type="submit"
-                                  class="btn btn-blue text-center"
-                                >
-                                  Update
-                                </button>{" "}
-                              </div>
-                            </Link>
+                                  <Link to={"/updatework/" + work._id}>
+                                    <div class="row mb-4 px-3">
+                                      <button
+                                        type="submit"
+                                        class="btn btn-blue text-center"
+                                      >
+                                        Update
+                                      </button>{" "}
+                                    </div>
+                                  </Link>
                                 </div>
                                 <div class="col-md-4">
-                                <Link to={"/applicantsList/" + work._id}>
-                              <div class="row mb-4 px-3">
-                                <button type="submit" class="btn btn-blue">
-                                  Applicants
-                                </button>{" "}
-                              </div>
-                            </Link>
-                                </div>
-
-                              </div>
-                             
-                           
-                            
+                                  <Link to={"/applicantsList/" + work._id}>
+                                    <div class="row mb-4 px-3">
+                                      <button
+                                        type="submit"
+                                        class="btn btn-blue"
+                                      >
+                                        Applicants
+                                      </button>{" "}
+                                    </div>
+                                  </Link>
+                                </div> */}
+                              {/* </div> */}
+                              <td>
+                                    <Button variant="info" onClick={() => this.props.editProduct()}>Edit</Button>
+                                    &nbsp;<Button variant="danger" onClick={() => this.deleteProduct()}>Delete</Button>
+                                  </td>
                             </td>
                           </tr>
                         </tbody>
