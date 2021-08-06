@@ -98,6 +98,7 @@ const { delay } = require("../utils/delay");
 //   await driver.quit();
 // });
 
+//update client functionality
 
 // Given("Test UpdateClient functionality", { timeout: 30000 }, async function () {
 //   let driver = await new Builder().forBrowser("chrome").build();
@@ -114,12 +115,27 @@ const { delay } = require("../utils/delay");
 
 // view freelance record functionality
 
-Given("Test FreelancerRecord functionality", { timeout: 30000 }, async function () {
+// Given("Test FreelancerRecord functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:4200/myApplied");
+//   await driver.sleep(delay);
+//   // await driver.findElement(By.id("deleterecord")).click();
+
+
+//   await driver.quit();
+// });
+
+//test client record
+Given("Test ClientRecord functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:4200/myApplied");
+  await driver.get("http://localhost:4200/login/");
+  await driver.findElement(By.id("email")).sendKeys("aavash@client.com");
+  await driver.findElement(By.id("password")).sendKeys("password");
   await driver.sleep(delay);
-  // await driver.findElement(By.id("deleterecord")).click();
+  await driver.findElement(By.id("loginBtn")).click();
+  await driver.sleep(delay);
+  await driver.get("http://localhost:4200/myListings");
 
-
+  await driver.sleep(delay);
   await driver.quit();
 });
