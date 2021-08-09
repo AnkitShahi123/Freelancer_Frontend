@@ -54,6 +54,24 @@ export default class applicantsList extends Component {
         console.log(err.response);
         alert("Error confirming work");
       });
+
+
+      axios({
+        method: "put",
+        url: "http://localhost:89/work/startworktimer/" + id,
+        data: { timerStatus: "Started" },
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+        .then((response) => {
+          console.log("to update" + id);
+          alert("Timer has been started");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.response);
+          alert("Error starting time");
+        });
+
   };
 
   denyMethod = (id) => {
