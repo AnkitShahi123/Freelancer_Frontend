@@ -49,12 +49,23 @@ const { delay } = require("../utils/delay");
 //   // await driver.quit();
 // });
 
-Given("Test Search functionality", { timeout: 30000 }, async function () {
+// Given("Test Search functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:/4200showAllJob/");
+//   await driver.findElement(By.id("search")).sendKeys("aavash@client.com");
+//   await driver.sleep(delay);
+//   await driver.findElement(By.id("searchbtm")).click();
+
+
+//   await driver.quit();
+// });
+
+Given("Test Apply functionality", { timeout: 30000 }, async function () {
   let driver = await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:/4200showAllJob/");
-  await driver.findElement(By.id("search")).sendKeys("aavash@client.com");
+  await driver.get("http://localhost:4200/jobDetails/60f303dccde19e0015d50bce");
+  await driver.findElement(By.id("applyid")).sendKeys("aavash@client.com");
   await driver.sleep(delay);
-  await driver.findElement(By.id("searchbtm")).click();
+  await driver.findElement(By.id("apply")).click();
 
 
   await driver.quit();
