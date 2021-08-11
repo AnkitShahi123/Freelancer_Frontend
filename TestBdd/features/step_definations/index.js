@@ -30,20 +30,32 @@ const { delay } = require("../utils/delay");
 
 //   await driver.quit();
 // });
-Given("Test PostJob functionality", { timeout: 30000 }, async function () {
-  let driver = await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:4200/addJob");
-  await driver.findElement(By.id("title")).sendKeys("testtitle");
-  await driver.findElement(By.id("type")).sendKeys("test");
-  await driver.findElement(By.id("price")).sendKeys("test");
-  await driver.findElement(By.id("vacancy")).sendKeys("available");
-  await driver.findElement(By.id("skills")).sendKeys("skilltest");
-  await driver.findElement(By.id("description")).sendKeys("testdes");
-  await driver.findElement(By.id("exp")).sendKeys("testexp");
-  await driver.sleep(delay);
-  await driver.findElement(By.id("subbmit")).click();
 
-  await driver.wait(until.elementLocated(By.id("loginForm")), 30000);
-  expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
-  // await driver.quit();
+// Given("Test PostJob functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:4200/addJob");
+//   await driver.findElement(By.id("title")).sendKeys("testtitle");
+//   await driver.findElement(By.id("type")).sendKeys("test");
+//   await driver.findElement(By.id("price")).sendKeys("test");
+//   await driver.findElement(By.id("vacancy")).sendKeys("available");
+//   await driver.findElement(By.id("skills")).sendKeys("skilltest");
+//   await driver.findElement(By.id("description")).sendKeys("testdes");
+//   await driver.findElement(By.id("exp")).sendKeys("testexp");
+//   await driver.sleep(delay);
+//   await driver.findElement(By.id("subbmit")).click();
+
+//   await driver.wait(until.elementLocated(By.id("loginForm")), 30000);
+//   expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
+//   // await driver.quit();
+// });
+
+Given("Test Search functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:/4200showAllJob/");
+  await driver.findElement(By.id("search")).sendKeys("aavash@client.com");
+  await driver.sleep(delay);
+  await driver.findElement(By.id("searchbtm")).click();
+
+
+  await driver.quit();
 });
