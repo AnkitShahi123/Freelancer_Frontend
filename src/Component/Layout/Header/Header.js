@@ -145,6 +145,7 @@ class Header extends Component {
                                                         {/* <li><Link to="/showAllJob">Show Jobs</Link></li> */}
                                                         <li><Link to="/mysaved">My Saved Works</Link></li>
                                                         <li><Link to="/myStartedWorks">My Started Works</Link></li>
+                                                        <li><Link to="/showMyPreviousWorks">My Previous completed Works</Link></li>
                                                     </ul>
                                                 </li>
                                                 <li><Link to="/contact">Contact</Link></li>
