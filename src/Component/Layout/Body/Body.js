@@ -22,6 +22,7 @@ import {
 import adminpanel from "../Adminpannel/adminpanel";
 import myApplied from "../Freelancer/myapplied";
 import mysaved from "../Freelancer/mysaved";
+import myStartedWorks from "../Freelancer/myStartedWorks";
 import myListings from "../Client/myListings";
 import applicantsList from "../Client/applicantsList";
 const {Component}=require("react");
@@ -55,6 +56,7 @@ render() {
         <Route path="/jobDetails/:id" component={jobDetails} />
         <Route path="/myApplied" component={myApplied} />
         <Route path="/mysaved" component={mysaved} />
+        <Route path="/myStartedWorks" component={myStartedWorks} />
         <Route path="/contact" component={contact} />
         <Route path="/edituserprofile/:id" component={editUserProfile} />
       </Switch>
