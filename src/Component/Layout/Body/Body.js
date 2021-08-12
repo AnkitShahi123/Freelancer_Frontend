@@ -26,6 +26,7 @@ import myStartedWorks from "../Freelancer/myStartedWorks";
 import showMyPreviousWorks from "../Freelancer/showMyPreviousWorks";
 import myListings from "../Client/myListings";
 import applicantsList from "../Client/applicantsList";
+import showCompletedFreelancers from "../Client/showCompletedFreelancers";
 const {Component}=require("react");
 
 export default class Body extends Component {
@@ -46,6 +47,7 @@ render() {
         <Route path="/addJob" component={addJob} />
         <Route path="/updatework/:id" component={updatework} />
         <Route path="/myListings" component={myListings} />
+        <Route path="/showCompletedFreelancers" component={showCompletedFreelancers} />
         <Route path="/applicantsList/:id" component={applicantsList} />
         <Route path="/profileClient" component={profileClient} />
         <Route path="/editclientprofile/:id" component={editclientProfile} />

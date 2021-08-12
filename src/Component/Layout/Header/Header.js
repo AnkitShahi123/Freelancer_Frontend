@@ -67,6 +67,7 @@ class Header extends Component {
                                                     <li><a href="about.html">About</a></li>
                                                     <li><Link to="/addJob">Add Job</Link></li>
                                                     <li><Link to="/myListings">My Postings</Link></li>
+                                                    <li><Link to="/showCompletedFreelancers">Completed Freelancers</Link></li>
                                                     <li><Link to="/profileClient">Profile</Link></li>
                                                 </ul>
                                             </nav>
