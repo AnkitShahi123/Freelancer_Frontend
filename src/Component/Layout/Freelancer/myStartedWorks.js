@@ -28,17 +28,22 @@ class myStartedWorks extends Component {
       });
   }
 
-  deletework = (id) => {
-    axios
-      .delete("http://localhost:89/work/delete/" + id, this.state.config)
-      .then((response) => {
-        console.log(response);
-        alert("Delete successfull");
-        window.location.reload();
+  stopwork = (id) => {
+    axios({
+        method: "put",
+        url: "http://localhost:89/work/stopworktimer/" + id,
+        data: { timerStatus: "Stopped" },
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
       })
-      .catch((err) => {
-        alert("Delete unsuccessfull");
-      });
+        .then((response) => {
+          console.log("to update" + id);
+          alert("Timer has been stopped");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.response);
+          alert("Error stopping time");
+        });
   };
 
   render() {
@@ -112,28 +117,12 @@ class myStartedWorks extends Component {
                             <button
                               type="submit"
                               class="btn btn-blue text-center"
-                              onClick={this.deletework.bind(this, work._id)}
+                              onClick={this.stopwork.bind(this, work._id)}
                             >
-                              Delete this.
+                             Finish this work
                             </button>{" "}
                           </div>
-                          <Link to={"/updatework/" + work._id}>
-                            <div class="row mb-4 px-3">
-                              <button
-                                type="submit"
-                                class="btn btn-blue text-center"
-                              >
-                                Update
-                              </button>{" "}
-                            </div>
-                          </Link>
-                          <Link to={"/applicantsList/" + work._id}>
-                            <div class="row mb-4 px-3">
-                              <button type="submit" class="btn btn-blue">
-                                Applicants
-                              </button>{" "}
-                            </div>
-                          </Link>
+                          
                         </div>
                       </div>
                     </div>
