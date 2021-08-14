@@ -126,16 +126,35 @@ const { delay } = require("../utils/delay");
 // });
 
 //test client record
-Given("Test ClientRecord functionality", { timeout: 30000 }, async function () {
-  let driver = await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:4200/login/");
-  await driver.findElement(By.id("email")).sendKeys("aavash@client.com");
-  await driver.findElement(By.id("password")).sendKeys("password");
-  await driver.sleep(delay);
-  await driver.findElement(By.id("loginBtn")).click();
-  await driver.sleep(delay);
-  await driver.get("http://localhost:4200/myListings");
+// Given("Test ClientRecord functionality", { timeout: 30000 }, async function () {
+//   let driver = await new Builder().forBrowser("chrome").build();
+//   await driver.get("http://localhost:4200/login/");
+//   await driver.findElement(By.id("email")).sendKeys("aavash@client.com");
+//   await driver.findElement(By.id("password")).sendKeys("password");
+//   await driver.sleep(delay);
+//   await driver.findElement(By.id("loginBtn")).click();
+//   await driver.sleep(delay);
+//   await driver.get("http://localhost:4200/myListings");
 
+//   await driver.sleep(delay);
+//   await driver.quit();
+// });
+
+//update work posted by client
+
+Given("Test Updatework functionality", { timeout: 30000 }, async function () {
+  let driver = await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:4201/updatework/61018e71c8920c5ab8c8442f#");
+  await driver.findElement(By.id("work")).sendKeys("testtitle");
+  await driver.findElement(By.id("know")).sendKeys("test");
+  await driver.findElement(By.id("Edu")).sendKeys("test");
+  await driver.findElement(By.id("vac")).sendKeys("available");
+  await driver.findElement(By.id("skills")).sendKeys("skilltest");
+  await driver.findElement(By.id("est")).sendKeys("testdes");
   await driver.sleep(delay);
-  await driver.quit();
+  await driver.findElement(By.id("confid")).click();
+
+  await driver.wait(until.elementLocated(By.id("loginForm")), 30000);
+  expect(await driver.wait(until.elementLocated(By.id("loginForm"))));
+  // await driver.quit();
 });
