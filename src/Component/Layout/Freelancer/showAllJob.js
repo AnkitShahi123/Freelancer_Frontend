@@ -73,7 +73,7 @@ class showAllJob extends Component {
           .then((response) => {
             console.log(response);
 
-            //    alert("work apply successfull");
+                alert("work apply successfull");
           })
           .catch((err) => {
             console.log(this.state.config);
@@ -83,6 +83,43 @@ class showAllJob extends Component {
         Swal.fire(
           "Applied",
           "Your have successfully applied to this work.",
+          "success"
+        );
+      }
+    });
+  };
+
+
+  reportwork = (id) => {
+    
+    Swal.fire({
+      title: "Report this work?",
+      icon: "warning",
+
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Report",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios({
+          method: "post",
+          url: "http://localhost:89/work/reportWork/" + id,
+
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+          .then((response) => {
+            console.log(response);
+
+        
+          })
+          .catch((err) => {
+            console.log(this.state.config);
+            console.log(err.response);
+            alert("work report unsuccessfull");
+          });
+        Swal.fire(
+          "Applied",
+          "Your have successfully reported this work.",
           "success"
         );
       }
@@ -481,10 +518,18 @@ class showAllJob extends Component {
                                 </ul>
                               </div>
                             </div>
+                            <button
+                              type="submit"
+                              class="btn btn-blue text-center"
+                              onClick={this.reportwork.bind(this, work._id)}
+                            >
+                             Report this work
+                            </button>
                             <div class="items-link items-link2 f-right">
                               <Link to={"/jobDetails/" + work._id}>
                                 See more
                               </Link>
+                              
                               <span>7 hours ago</span>
                             </div>
                           </div>
