@@ -35,71 +35,141 @@ export default class report extends Component {
     }
 
 
-    approveClient = (id) => {
-        Swal.fire({
-            title: 'Approve this client?',
-            icon: 'warning',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Approve'
-          }).then((result) => {
-            if (result.isConfirmed) {
+    // approveClient = (id) => {
+    //     Swal.fire({
+    //         title: 'Approve this client?',
+    //         icon: 'warning',
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, Approve'
+    //       }).then((result) => {
+    //         if (result.isConfirmed) {
       
-                axios({
-                    method: "put",
-                    url: "http://localhost:89/work/approveThisWork/" + id,
-                    data: { approval: "Verified by Admin." },
-                    headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-                })
-                .then((response) => {
-                    console.log(response)
+    //             axios({
+    //                 method: "put",
+    //                 url: 'http://localhost:89/work/approveThisWork/' + id,
+    //                 data: { approval: "Verified by Admin." },
+    //                 headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    //             })
+    //             .then((response) => {
+    //                 console.log(response)
                     
-                    Swal.fire(
-                        'Approved',
-                        'Your have successfully approved this clients posting',
-                        'success'
-                      )
-                    window.location.reload()
-                })
-                .catch((err) => {
-                    //console.log(err.response)
-                    alert("Delete unsuccessfull")
-                })
+    //                 Swal.fire(
+    //                     'Approved',
+    //                     'Your have successfully approved this clients posting',
+    //                     'success'
+    //                   )
+    //                 //window.location.reload()
+    //             })
+    //             .catch((err) => {
+    //                 //console.log(err.response)
+    //                 alert("Delete unsuccessfull")
+    //             })
               
-            }
+    //         }
       
-          })
-    }
+    //       })
+    // }
 
-    terminateClient = (id) => {
-        Swal.fire({
-            title: 'Terminate this client?',
-            icon: 'warning',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Terminate'
-          }).then((result) => {
-            if (result.isConfirmed) {
-      
-                axios.delete('http://localhost:89/work/deletereport/' + id, this.state.config)
-                .then((response) => {
-                    console.log(response)
-                    //alert("Delete successfull")
-                    Swal.fire(
-                        'Deleted',
-                        'Your have successfully terminated this client.',
-                        'success'
-                      )
-                    window.location.reload()
-                })
-                .catch((err) => {
-                    //console.log(err.response)
-                    alert("Delete unsuccessfull")
-                })
-              
-            }
-      
+    approveClient = (id) => {
+    
+        axios({
+          method: "put",
+          url: "http://localhost:89/work/approveThisWork/" + id,
+          data: { approval:'ee'},
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+          .then((response) => {
+            console.log(response.data);
+            alert("work has been approve");
+          //  window.location.reload();
           })
+          .catch((err) => {
+            console.log(err.response);
+            alert("Error denying work");
+          });
+
+          
+          axios({
+            method: "put",
+            url: "http://localhost:89/work/afterReportAction/" + id,
+            data: { status:'Resolved'},
+            headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+          })
+            .then((response) => {
+              console.log(response.data);
+              alert("report has been resolved");
+            //  window.location.reload();
+            })
+            .catch((err) => {
+              console.log(err.response);
+              alert("report has not been resolved");
+            });
+
+
+      };
+    
+
+    
+    deletework = (id) => {
+        // Swal.fire({
+        //     title: 'Terminate this post?',
+        //     icon: 'warning',
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, Terminate'
+        //   }).then((result) => {
+        //     if (result.isConfirmed) {
+      
+        //         axios.delete('http://localhost:89/work/delete/' + id, this.state.config)
+        //         .then((response) => {
+        //             console.log(response)
+        //             //alert("Delete successfull")
+        //             Swal.fire(
+        //                 'Deleted',
+        //                 'Your have successfully terminated this post.',
+        //                 'success'
+        //               )
+        //             window.location.reload()
+        //         })
+        //         .catch((err) => {
+        //             //console.log(err.response)
+        //             alert("Delete unsuccessfull")
+        //         })
+              
+        //     }
+      
+        //   })
+
+        axios
+      .delete("http://localhost:89/work/delete/" + id, this.state.config)
+      .then((response) => {
+        console.log(response);
+        alert("Delete successfull");
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert("Delete unsuccessfull");
+      });
+
+
+      
+      axios({
+        method: "put",
+        url: "http://localhost:89/work/afterReportAction/" + id,
+        data: { status:'Resolved'},
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+        .then((response) => {
+          console.log(response.data);
+          alert("report has been resolved");
+        //  window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.response);
+          alert("report has not been resolved");
+        });
+
     }
 
 
@@ -130,6 +200,7 @@ export default class report extends Component {
 
                                                 <div class="col-lg-6 mt-4 mt-md-0">
                                                     <div class="text-box">
+                                                        <h4 class="font-weight-light mt-2 mb-4">Report Status: <span class="text-megna">{work.status}</span></h4>
                                                         <h4 class="font-weight-light mt-2 mb-4">work Title: <span class="text-megna">{work.workid.worktitle}</span></h4>
                                                         <h6 class="font-weight-light">work Type: <span class="text-megna">{work.workid.worktype}</span></h6>
                                                         <h6 class="font-weight-light">Description: </h6><p>{work.workid.workdescription}</p>
@@ -148,7 +219,7 @@ export default class report extends Component {
 
                                                         <Button class="btn btn-info-gradiant btn-md text-white border-0" onClick={this.approveClient.bind(this, work._id)}><span>Approve this client</span></Button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <Button class="btn btn-info-gradiant btn-md text-white border-0" onClick={this.terminateClient.bind(this, work._id)}><span>Terminate access</span></Button>
+                                                        <Button class="btn btn-info-gradiant btn-md text-white border-0"   onClick={this.deletework.bind(this, work._id)}><span>Terminate access</span></Button>
 
                                                     </div>
                                                 </div>
