@@ -30,7 +30,7 @@ class findDetails extends Component {
     photo: "",
     role: "",
     projects: "",
-
+    approval: "",
     company: "",
     foundedin: "",
     userbio: "",
@@ -82,7 +82,7 @@ class findDetails extends Component {
           photos: response.data.creator.photo,
           role: response.data.creator.role,
           projects: response.data.creator.projects,
-
+          approval: response.data.approval,
           company: response.data.creator.company,
           foundedin: response.data.creator.foundedin,
           userbio: response.data.creator.userbio,
@@ -240,8 +240,9 @@ class findDetails extends Component {
                 <div class="post-details3  mb-50">
                   {/* <!-- Small Section Tittle --> */}
                   <div class="small-section-tittle">
-                    <h4>Job Overview</h4>
+                    <h4>Job Overview</h4>{this.state.approval}
                   </div>
+                  
                   <ul>
                     <li>
                       Posted date : <span>{this.state.createdAt}</span>

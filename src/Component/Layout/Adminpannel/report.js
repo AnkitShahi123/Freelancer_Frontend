@@ -45,13 +45,18 @@ export default class report extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/deletereport/' + id, this.state.config)
+                axios({
+                    method: "put",
+                    url: "http://localhost:89/work/approveThisWork/" + id,
+                    data: { approval: "Verified by Admin." },
+                    headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+                })
                 .then((response) => {
                     console.log(response)
                     
                     Swal.fire(
                         'Approved',
-                        'Your have successfully approved this client',
+                        'Your have successfully approved this clients posting',
                         'success'
                       )
                     window.location.reload()
