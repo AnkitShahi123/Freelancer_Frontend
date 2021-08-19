@@ -200,6 +200,7 @@ class Header extends Component {
                                           
                                           
                                                         <li><Link to="/report">Reports</Link></li>
+                                                        <li><Link to="/adminpanel">Adminpanel</Link></li>
                                           
                                                     </ul>
                                                 </li>
