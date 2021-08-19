@@ -240,7 +240,7 @@ class findDetails extends Component {
                 <div class="post-details3  mb-50">
                   {/* <!-- Small Section Tittle --> */}
                   <div class="small-section-tittle">
-                    <h4>Job Overview</h4>{this.state.approval}
+                    <h4>Job Overview</h4>
                   </div>
                   
                   <ul>

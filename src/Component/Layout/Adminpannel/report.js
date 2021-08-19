@@ -76,7 +76,7 @@ export default class report extends Component {
         axios({
           method: "put",
           url: "http://localhost:89/work/approveThisWork/" + id,
-          data: { approval:'ee'},
+          data: { approval:'Work has been approved'},
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
           .then((response) => {
@@ -112,63 +112,52 @@ export default class report extends Component {
 
     
     deletework = (id) => {
-        // Swal.fire({
-        //     title: 'Terminate this post?',
-        //     icon: 'warning',
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Yes, Terminate'
-        //   }).then((result) => {
-        //     if (result.isConfirmed) {
+        Swal.fire({
+            title: 'Terminate this post?',
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Terminate'
+          }).then((result) => {
+            if (result.isConfirmed) {
       
-        //         axios.delete('http://localhost:89/work/delete/' + id, this.state.config)
-        //         .then((response) => {
-        //             console.log(response)
-        //             //alert("Delete successfull")
-        //             Swal.fire(
-        //                 'Deleted',
-        //                 'Your have successfully terminated this post.',
-        //                 'success'
-        //               )
-        //             window.location.reload()
-        //         })
-        //         .catch((err) => {
-        //             //console.log(err.response)
-        //             alert("Delete unsuccessfull")
-        //         })
+                axios.delete('http://localhost:89/work/delete/' + id, this.state.config)
+                .then((response) => {
+                    console.log(response)
+                    //alert("Delete successfull")
+                    Swal.fire(
+                        'Deleted',
+                        'Your have successfully terminated this post.',
+                        'success'
+                      )
+                    window.location.reload()
+                })
+                .catch((err) => {
+                    //console.log(err.response)
+                    alert("Delete unsuccessfull")
+                })
               
-        //     }
+            }
+
+            axios({
+              method: "delete",
+              url: "http://localhost:89/work/deleteMyreport/" + id,
+              
+              headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+            })
+              .then((response) => {
+              
+                alert("report has been resolved");
+              //  window.location.reload();
+              })
+              .catch((err) => {
+                console.log(err.response);
+                alert("report has not been resolved");
+              });
       
-        //   })
+          })
 
-        axios
-      .delete("http://localhost:89/work/delete/" + id, this.state.config)
-      .then((response) => {
-        console.log(response);
-        alert("Delete successfull");
-        window.location.reload();
-      })
-      .catch((err) => {
-        alert("Delete unsuccessfull");
-      });
-
-
-      
-      axios({
-        method: "put",
-        url: "http://localhost:89/work/afterReportAction/" + id,
-        data: { status:'Resolved'},
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-        .then((response) => {
-          console.log(response.data);
-          alert("report has been resolved");
-        //  window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.response);
-          alert("report has not been resolved");
-        });
+        
 
     }
 

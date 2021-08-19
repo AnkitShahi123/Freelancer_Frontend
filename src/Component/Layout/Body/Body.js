@@ -35,7 +35,7 @@ render() {
   return (
     <div>
       <Switch>
-      <Route path="/" exact component={home}/>
+        <Route path="/" exact component={home}/>
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         
