@@ -1,5 +1,5 @@
 Feature: To Apply   
  As a user i want to be able to apply to the jobs available
 
-  Scenario: User applies for the jobs they want to.
-   Given Test Apply functionality
+     Scenario: User applies for the jobs they liked or want to work for 
+         Given Apply functionality
