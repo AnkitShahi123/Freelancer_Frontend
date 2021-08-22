@@ -1,5 +1,0 @@
-Feature: To save 
- As a freelancer i want to  be able to save work
-
-     Scenario: User can save the job they want to 
-         Given SaveWork functionality
