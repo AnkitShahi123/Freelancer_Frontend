@@ -247,6 +247,8 @@ export default class myApplied extends Component {
               //   </div>
               // </section>
 
+            
+
              <div> 
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -258,50 +260,57 @@ export default class myApplied extends Component {
                     <th style={css1}>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Alphabet puzzle</td>
-                    <td>2016/01/15</td>
-                    <td>Done</td>
-                    <td>
-                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                      </button>
-                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Layout for poster</td>
-                    <td>2016/01/31</td>
-                    <td>Planned</td>
-                    <td>
-                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                      </button>
-                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Image creation</td>
-                    <td>2016/01/23</td>
-                    <td>To Do</td>
-                    <td>
-                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                      </button>
-                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
+                {this.state.appliedworks.map((work) => {
+                            return (
+                              <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td><span><h4>{work.workid.worktitle}</h4></span>
+                                    <span>
+                                        Appilied Date: {work.createdAt}
+                                    </span></td>
+                                <td>Company XYZ</td>
+                                <td>Done</td>
+                                <td>
+                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                                  </button>
+                                  <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>Layout for poster</td>
+                                <td>2016/01/31</td>
+                                <td>Planned</td>
+                                <td>
+                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                                  </button>
+                                  <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>Image creation</td>
+                                <td>2016/01/23</td>
+                                <td>To Do</td>
+                                <td>
+                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                                  </button>
+                                  <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>  
+                            );
+                         })}
               </table>
 
               {/* // <!-- Modal --> */}
