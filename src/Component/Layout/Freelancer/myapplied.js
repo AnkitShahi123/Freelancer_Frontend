@@ -5,6 +5,14 @@ import { Card, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 const axios = require("axios").default;
 
+const css1 = {
+  textAlign:"center",
+  width:"100px"
+};
+
+const css2 = {
+  marginRight:"0px"
+};
 export default class myApplied extends Component {
   state = {
     appliedworks: [],
@@ -12,6 +20,8 @@ export default class myApplied extends Component {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     },
   };
+
+
 
   componentDidMount() {
     axios({
@@ -131,111 +141,192 @@ export default class myApplied extends Component {
               //     </div>
               // </div>
               
+              // ------------------------------------------------------------
 
-              <section class="ftco-section">
-                <div class="container">
-                  <div class="row justify-content-center">
-                    <div class="col-md-6 text-center mb-5"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="table-wrap">
-                        <table class="table table-responsive-xl">
-                          <thead>
-                            <tr>
-                              <th>&nbsp;</th>
-                              <th>Details</th>
-                              <th>Company Name</th>
-                              <th>Status</th>
-                              <th>Actions</th>
-                              <th>&nbsp;</th>
-                            </tr>
-                          </thead>
-                          {this.state.appliedworks.map((work) => {
-                            return (
-                              <tbody>
-                                <tr class="alert" role="alert">
-                                  <td>
-                                    <label class="checkbox-wrap checkbox-primary">
-                                      <input type="checkbox" checked />
-                                      <span class="checkmark"></span>
-                                    </label>
-                                  </td>
-                                  <td class="d-flex align-items-center">
-                                    <div class="col-lg-6">
-                                      <img
-                                        src={`http://localhost:89/${work.workid.photo}`}
-                                        class="rounded img-shadow img-fluid"
-                                        alt="wrapkit"
-                                        style={{ height: "70px" }}
-                                      />
-                                    </div>
-                                    <div class="pl-3 email">
-                                      <span><h4>{work.workid.worktitle}</h4></span>
-                                      <span>
-                                        Appilied Date: {work.createdAt}
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td>Company XYZ</td>
-                                  <td class="status">
+              // <section class="ftco-section">
+              //   <div class="container">
+              //     <div class="row justify-content-center">
+              //       <div class="col-md-6 text-center mb-5"></div>
+              //     </div>
+              //     <div class="row">
+              //       <div class="col-md-12">
+              //         <div class="table-wrap">
+              //           <table class="table table-responsive-xl">
+              //             <thead>
+              //               <tr>
+              //                 <th>&nbsp;</th>
+              //                 <th>Details</th>
+              //                 <th>Company Name</th>
+              //                 <th>Status</th>
+              //                 <th>Actions</th>
+              //                 <th>&nbsp;</th>
+              //               </tr>
+              //             </thead>
+              //             {this.state.appliedworks.map((work) => {
+              //               return (
+              //                 <tbody>
+              //                   <tr class="alert" role="alert">
+              //                     <td>
+              //                       <label class="checkbox-wrap checkbox-primary">
+              //                         <input type="checkbox" checked />
+              //                         <span class="checkmark"></span>
+              //                       </label>
+              //                     </td>
+              //                     <td class="d-flex align-items-center">
+              //                       <div class="col-lg-6">
+              //                         <img
+              //                           src={`http://localhost:89/${work.workid.photo}`}
+              //                           class="rounded img-shadow img-fluid"
+              //                           alt="wrapkit"
+              //                           style={{ height: "70px" }}
+              //                         />
+              //                       </div>
+              //                       <div class="pl-3 email">
+              //                         <span><h4>{work.workid.worktitle}</h4></span>
+              //                         <span>
+              //                           Appilied Date: {work.createdAt}
+              //                         </span>
+              //                       </div>
+              //                     </td>
+              //                     <td>Company XYZ</td>
+              //                     <td class="status">
                                   
                                   
-                                    {/* <button
-                                                            type="button"
-                                                            class="close"
-                                                            data-dismiss="alert"
-                                                            aria-label="Close"
-                                                        >
-                                                            <span aria-hidden="true">
-                                                            <i class="fa fa-close"></i>
-                                                            </span>
-                                                        </button> */}
+              //                       {/* <button
+              //                                               type="button"
+              //                                               class="close"
+              //                                               data-dismiss="alert"
+              //                                               aria-label="Close"
+              //                                           >
+              //                                               <span aria-hidden="true">
+              //                                               <i class="fa fa-close"></i>
+              //                                               </span>
+              //                                           </button> */}
 
-                                    {work.confirmStatus === "Confirmed" ? (
-                                      <p>
-                                        <h4>
-                                        <span class="active">Active</span>
-                                        </h4>
-                                      </p>
-                                    ) : work.confirmStatus === "denied" ? (
-                                      <p>
-                                        <h4>
-                                        <span class="active">Denied</span>
-                                        </h4>
-                                      </p>
-                                    ) : (
-                                      <p class=".text-primary">
-                                        <h4>
-                                        <span class="waiting">Pending</span>
-                                        </h4>
-                                      </p>
-                                    )}
-                                    <div class="row mb-3 px-3">
-                                      {" "}
-                                      <button
-                                        type="submit"
-                                        class="btn btn-blue text-center"
-                                        onClick={this.deletework.bind(
-                                          this,
-                                          work._id
-                                        )}
-                                      >
-                                        Delete
-                                      </button>{" "}
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            );
-                          })}
-                        </table>
-                      </div>
+              //                       {work.confirmStatus === "Confirmed" ? (
+              //                         <p>
+              //                           <h4>
+              //                           <span class="active">Active</span>
+              //                           </h4>
+              //                         </p>
+              //                       ) : work.confirmStatus === "denied" ? (
+              //                         <p>
+              //                           <h4>
+              //                           <span class="active">Denied</span>
+              //                           </h4>
+              //                         </p>
+              //                       ) : (
+              //                         <p class=".text-primary">
+              //                           <h4>
+              //                           <span class="waiting">Pending</span>
+              //                           </h4>
+              //                         </p>
+              //                       )}
+              //                       <div class="row mb-3 px-3">
+              //                         {" "}
+              //                         <button
+              //                           type="submit"
+              //                           class="btn btn-blue text-center"
+              //                           onClick={this.deletework.bind(
+              //                             this,
+              //                             work._id
+              //                           )}
+              //                         >
+              //                           Delete
+              //                         </button>{" "}
+              //                       </div>
+              //                     </td>
+              //                   </tr>
+              //                 </tbody>
+              //               );
+              //             })}
+              //           </table>
+              //         </div>
+              //       </div>
+              //     </div>
+              //   </div>
+              // </section>
+
+             <div> 
+              <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Details</th>
+                    <th>Company Name</th>
+                    <th>Status</th>
+                    <th style={css1}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Alphabet puzzle</td>
+                    <td>2016/01/15</td>
+                    <td>Done</td>
+                    <td>
+                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                      </button>
+                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Layout for poster</td>
+                    <td>2016/01/31</td>
+                    <td>Planned</td>
+                    <td>
+                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                      </button>
+                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Image creation</td>
+                    <td>2016/01/23</td>
+                    <td>To Do</td>
+                    <td>
+                      <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+                      </button>
+                      <button type="button" class="btn0 btn-danger btn-xs dt-delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              {/* // <!-- Modal --> */}
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  {/* <!-- Modal content--> */}
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Row information</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn0 btn-default" data-dismiss="modal">Close</button>
                     </div>
                   </div>
+
                 </div>
-              </section>
+              </div>
+              </div>
             }
+            
           </div>
           <Col></Col>
           </div>

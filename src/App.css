@@ -149,6 +149,11 @@ body{
 
 .btn-primary{
   height: 50px;
+  width: 100px;
+}
+.btn-danger{
+  height: 50px;
+  width: 100px;
 }
 
 
@@ -657,36 +662,6 @@ body{
   text-decoration: none !important;
 }
 
-/* .flaticon-tour:before {
-  content: "\f100";
-}
-
-
-.flaticon-cms:before {
-  content: "\f102";
-} */
-
-/* .slider-area{
-  width: 1903px;
-  position: relative;
-  left: 0px;
-  top: 0px;
-  z-index: 999;
-  opacity: 1;
-  background-image: url(assets/img/hero/h1_hero.jpg);
-} */
-
-/* .single-slider{
-  background-image: url("about.jpg");
-} */
-
-
-/* .head-btn2 {
-  background: none;
-  border: 1px solid #fb246a;
-  color: #fb246a;
-} */
-
 .head-btn1{
   background: #fb246a;
   -moz-user-select: none;
@@ -707,3 +682,8 @@ login-img {
   border-style: none;
   margin-left: -100px;
 }
+
+
+/* For table  */
+body {margin:2em;}
+td:last-child {text-align:center;}
