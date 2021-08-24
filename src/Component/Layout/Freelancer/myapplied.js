@@ -254,10 +254,11 @@ export default class myApplied extends Component {
                 <thead>
                   <tr>
                     <th>&nbsp;</th>
-                    <th>Details</th>
-                    <th>Company Name</th>
-                    <th>Status</th>
-                    <th style={css1}>Actions</th>
+                    <th><h5>Details</h5></th>
+                    <th><h5>Email</h5></th>
+                    <th><h5>Company Name</h5></th>
+                    <th><h5>Status</h5></th>
+                    <th style={css1}><h5>Actions</h5></th>
                   </tr>
                 </thead>
                 {this.state.appliedworks.map((work) => {
@@ -269,45 +270,34 @@ export default class myApplied extends Component {
                                     <span>
                                         Appilied Date: {work.createdAt}
                                     </span></td>
+                                <td>{work.workid.creator.email}Company Email Here!!!</td>
                                 <td>Company XYZ</td>
-                                <td>Done</td>
+                                <td> {work.confirmStatus === "Confirmed" ? (
+                                      <p>
+                                        <h6>
+                                        <span class="active">Active</span>
+                                        </h6>
+                                      </p>
+                                    ) : work.confirmStatus === "denied" ? (
+                                      <p>
+                                        <h6>
+                                        <span class="active">Denied</span>
+                                        </h6>
+                                      </p>
+                                    ) : (
+                                      <p class=".text-primary">
+                                        <h6>
+                                        <span class="waiting">Pending</span>
+                                        </h6>
+                                      </p>
+                                    )}</td>
                                 <td>
-                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                                  </button>
                                   <button type="button" class="btn0 btn-danger btn-xs dt-delete">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
                                   </button>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>Layout for poster</td>
-                                <td>2016/01/31</td>
-                                <td>Planned</td>
-                                <td>
-                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                                  </button>
-                                  <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
-                                  </button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>Image creation</td>
-                                <td>2016/01/23</td>
-                                <td>To Do</td>
-                                <td>
-                                  <button type="button" class="btn0 btn-primary btn-xs dt-edit" style={css2}>
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
-                                  </button>
-                                  <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
-                                  </button>
-                                </td>
-                              </tr>
+                             
                             </tbody>  
                             );
                          })}

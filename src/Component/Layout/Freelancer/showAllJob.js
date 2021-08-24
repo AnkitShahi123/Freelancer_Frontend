@@ -303,10 +303,10 @@ class showAllJob extends Component {
                       <div class="select-job-items2">
                         <select name="select">
                           <option value="">All Category</option>
-                          <option value="">Category 1</option>
-                          <option value="">Category 2</option>
-                          <option value="">Category 3</option>
-                          <option value="">Category 4</option>
+                          <option value="">Startup</option>
+                          <option value="">Data Analytics</option>
+                          <option value="">Designer</option>
+                          <option value="">Programmer</option>
                         </select>
                       </div>
                       {/* <!--  Select job items End--> */}
