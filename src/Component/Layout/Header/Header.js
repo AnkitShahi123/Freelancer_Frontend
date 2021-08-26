@@ -247,15 +247,14 @@ class Header extends Component {
                                     <nav class="d-none d-lg-block">
                                         <ul id="navigation">
                                             <li><Link to="/">Home</Link></li>
-                                            <li><Link to="/findJobs">Find a Jobs </Link></li> 
+                                            {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
-                                                    {/* <li><a href="elements.html">Elements</a></li> */}
-                                                    <li><Link to="/jobDetails">Job Details</Link></li>
-                                                    <li><Link to="">Job Details</Link></li>
+                                                    {/* <li><Link to="/jobDetails">Job Details</Link></li>
+                                                    <li><Link to="">Job Details</Link></li> */}
                                                 </ul>
                                             </li>
                                             <li><Link to="/contact">Contact</Link></li>
