@@ -1,7 +1,5 @@
 import React, { Component, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Route, Link } from "react-router-dom";
-import { Card, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 const axios = require("axios").default;
 

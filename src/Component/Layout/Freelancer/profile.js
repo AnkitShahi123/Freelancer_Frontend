@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
+// import "./Profile.css";
 import { Button } from "react-bootstrap";
 const axios = require("axios").default;
+
+const header = {
+  // minHeight: "600px", 
+  backgroundImage: "url(https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/profile-cover.jpg)",
+   backgroundSize: "cover", 
+   backgroundPosition:" center top"
+}
 
 export default class profile extends Component {
   state = {
@@ -289,6 +297,8 @@ export default class profile extends Component {
               </div>
             </div>
           </div>
+  {/* -------------------------------------------- */}
+           
         </div>
       );
    

@@ -152,8 +152,6 @@ class Header extends Component {
                                                 <li><a href="about.html">About</a></li>
                                                 <li><a href="#">Page</a>
                                                     <ul class="submenu">
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="single-blog.html">Blog Details</a></li>
                                                         <li><Link to="/myApplied">My Applied Jobs</Link></li>
                                                         {/* <li><Link to="/showAllJob">Show Jobs</Link></li> */}
                                                         <li><Link to="/mysaved">My Saved Works</Link></li>
@@ -266,8 +264,6 @@ class Header extends Component {
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
-                                                    {/* <li><Link to="/jobDetails">Job Details</Link></li>
-                                                    <li><Link to="">Job Details</Link></li> */}
                                                 </ul>
                                             </li>
                                             <li><Link to="/contact">Contact</Link></li>
