@@ -72,20 +72,26 @@ class myListings extends Component {
           <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>&nbsp;</th>
+                
+                <th><h5>Photo</h5></th>
                 <th><h5>Work Title</h5></th>
                 <th><h5>Required Experience</h5></th>
                 <th><h5>Work Salary</h5></th>
                 <th><h5>Email</h5></th>
                 <th><h5>Posted on</h5></th>
                 <th style={css1}><h5>Actions</h5></th>
+                <th><h5></h5></th>
+                <th><h5></h5></th>
               </tr>
             </thead>
             {this.state.works.map((work) => {
                         return (
                           <tbody>
                           <tr>
-                            <td>1</td>
+                          <td><img
+                                    src={`http://localhost:89/${work.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  /></td>
                             <td><span><h4>{work.worktitle}</h4></span>
                                 <span>
                                     Work Type:  {work.worktype}

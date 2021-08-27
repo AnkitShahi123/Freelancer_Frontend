@@ -15,7 +15,7 @@ const css = {
     fontFamily: "Barlow, sans-serif"
 }
 
-class showAllJob extends Component {
+class showAllforAdmin extends Component {
   state = {
     works: [],
     config: {
@@ -66,68 +66,33 @@ class showAllJob extends Component {
 
   applywork = (id) => {
     // alert(this.state.config.headers.authorization)
-    Swal.fire({
-      title: "Apply in this work?",
-      icon: "warning",
-
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Apply",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios({
-          method: "post",
-          url: "http://localhost:89/work/applywork/" + id,
-
-          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-        })
-          .then((response) => {
-            console.log(response);
-
-                alert("work apply successfull");
-          })
-          .catch((err) => {
-            console.log(this.state.config);
-            console.log(err.response);
-            alert("work apply unsuccessfull");
-          });
-        Swal.fire(
-          "Applied",
-          "Your have successfully applied to this work.",
-          "success"
-        );
-      }
-    });
+    
   };
 
 
   reportwork = (id) => {
     
     Swal.fire({
-      title: "Report this work?",
+      title: "Delete this work?",
       icon: "warning",
 
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Report",
+      confirmButtonText: "Yes, Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios({
-          method: "post",
-          url: "http://localhost:89/work/reportWork/" + id,
-
-          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-        })
-          .then((response) => {
-            console.log(response);
-
         
-          })
-          .catch((err) => {
-            console.log(this.state.config);
-            console.log(err.response);
-            alert("work report unsuccessfull");
-          });
+            axios
+              .delete("http://localhost:89/work/delete/" + id, this.state.config)
+              .then((response) => {
+                console.log(response);
+                
+                window.location.reload();
+              })
+              .catch((err) => {
+                alert("Delete unsuccessfull");
+              });
+          
         Swal.fire(
           "Applied",
           "Your have successfully reported this work.",
@@ -534,10 +499,10 @@ class showAllJob extends Component {
                               onClick={this.reportwork.bind(this, work._id)}
                               style={css}
                             >
-                             Report this work
+                             Delete this work
                             </button>
                             <div class="items-link items-link2 f-right">
-                              <Link to={"/jobDetails/" + work._id}>
+                              <Link to={"/jobDetailsForAdmin/" + work._id}>
                                 See more
                               </Link>
                               
@@ -622,4 +587,4 @@ class showAllJob extends Component {
   }
 }
 
-export default showAllJob;
+export default showAllforAdmin;

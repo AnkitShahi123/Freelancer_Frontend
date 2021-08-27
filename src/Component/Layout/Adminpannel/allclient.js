@@ -11,7 +11,7 @@ const css2 = {
   marginRight:"0px"
 };
 
-class adminpanel extends Component {
+class allclient extends Component {
   state = {
     freelancers:[{}],
     clients:[{}],
@@ -21,25 +21,12 @@ class adminpanel extends Component {
     
   };
 
-  // async componentDidMount() {
-  //   await axios
-  //     .get("http://localhost:89/allClient")
-  //     .then((response) => {
-  //        this.setState({
-  //         clients: response.data,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       alert("Error. Please Login first");
-  //     });
-  // }
   async componentDidMount() {
     await axios
-      .get("http://localhost:89/allFreelancer")
+      .get("http://localhost:89/allClient")
       .then((response) => {
          this.setState({
-          freelancers: response.data,
+          clients: response.data,
         });
       })
       .catch((err) => {
@@ -47,6 +34,19 @@ class adminpanel extends Component {
         alert("Error. Please Login first");
       });
   }
+  // async componentDidMount() {
+  //   await axios
+  //     .get("http://localhost:89/allFreelancer")
+  //     .then((response) => {
+  //        this.setState({
+  //         freelancers: response.data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       alert("Error. Please Login first");
+  //     });
+  // }
 
   deleteUser = (id) => {
     axios({
@@ -75,8 +75,8 @@ class adminpanel extends Component {
     return (
       <div>
         
-        <div> 
-        <h1> Registered Freelancers</h1>
+              <div> 
+        <h1> Registered Clients</h1>
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
@@ -87,8 +87,8 @@ class adminpanel extends Component {
                     <th><h5>Role</h5></th>
                     <th><h5>Address</h5></th>
                     <th><h5>Age</h5></th>
-                    <th><h5>Education</h5></th>
-                    <th><h5>Experience</h5></th>
+                    <th><h5>Company</h5></th>
+                    
                     <th><h5>Phone</h5></th>
                     <th><h5>Projects</h5></th>
                     <th><h5>User Bio</h5></th>
@@ -96,22 +96,23 @@ class adminpanel extends Component {
                     <th style={css1}><h5>Actions</h5></th>
                   </tr>
                 </thead>
-                {this.state.freelancers.map((user) => {
+                {this.state.clients.map((user) => {
                             return (
                               <tbody>
                               <tr>
                               <th>&nbsp;</th>
                                 <td > <img
-                                    src={`http://localhost:89/${user.photo}`}
-                                    alt="" style={{ height:100, width:120 }}
-                                  /></td>
+                          src={`http://localhost:89/${user.photo}`}
+                          alt=""
+                          style={{ width:'100px' , height: "80px" }}
+                        /></td>
                                 <td>{user.firstname}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>{user.address}</td>
                                 <td>{user.age}</td>
-                                <td>{user.education}</td>
-                                <td>{user.experience}</td>
+                                <td>{user.company}</td>
+                                
                                 <td>{user.phone}</td>
                                 <td>{user.projects}</td>
                                 <td>{user.userbio}</td>
@@ -150,9 +151,6 @@ class adminpanel extends Component {
               </div>
               </div>
             
-
-
-            
             
 
 
@@ -163,4 +161,4 @@ class adminpanel extends Component {
   }
 }
 
-export default adminpanel;
+export default allclient;

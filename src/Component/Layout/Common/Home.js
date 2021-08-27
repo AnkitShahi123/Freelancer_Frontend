@@ -1,7 +1,40 @@
 import { React, Component } from "react";
 import { Route, Link } from "react-router-dom";
-
+const axios = require("axios").default;
+const css = {
+    height: "40px",
+    width: "200px",
+    marginTop: "40px",
+    background: "rgb(251, 36, 106)",
+    color: "rgb(255, 255, 255)",
+    padding: "8px 20px",
+    borderRadius: "2px",
+    outline: "none",  
+    fontFamily: "Barlow, sans-serif"
+}
 class home extends Component {
+    state = {
+        works: [],
+        
+        typed: "",
+      };
+
+      componentDidMount() {
+        axios
+          .get("http://localhost:89/work/showall")
+          .then((response) => {
+            console.log(response.data);
+            console.log(response.data.worktitle);
+            this.setState({
+              works: response.data,
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("Error. Please Login first");
+          });
+      }
+    
   render() {
     return (
       <main>
@@ -187,85 +220,43 @@ class home extends Component {
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
                         {/* <!-- single-job-content --> */}
-                        <div class="single-job-items mb-30">
+                       
+                        {this.state.works.map((work) => {
+                        return (
+                          <div class="single-job-items mb-30">
                             <div class="job-items">
-                                <div class="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list1.png" alt=""/></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
+                              <div class="company-img">
+                                <a>
+                                  <img
+                                    src={`http://localhost:89/${work.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  />
+                                </a>
+                              </div>
+                              <div class="job-tittle job-tittle2">
+                                
+                              <h4>{work.worktitle}</h4>
+                                
+                                <ul>
+                                <i class="fas fa-briefcase"></i><li>{work.creator.company}</li>
+                                  <li>
+                                    <i class="fas fa-map-marker-alt"></i>{work.creator.address}
+                                  </li>
+                                  <li>${work.estimatedprice}</li>
+                                </ul>
+                              </div>
                             </div>
-                            <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
+                           
+                            <div class="items-link items-link2 f-right">
+                              <Link to={"/jobDetails/" + work._id}>
+                                See more
+                              </Link>
+                              
+                              <div>{work.createdAt}</div>
                             </div>
-                        </div>
-                        {/* <!-- single-job-content --> */}
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list2.png" alt=""/></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
-                            </div>
-                        </div>
-                         {/* <!-- single-job-content --> */}
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list3.png" alt=""/></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
-                            </div>
-                        </div>
-                         {/* <!-- single-job-content --> */}
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list4.png" alt=""/></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
-                            </div>
-                        </div>
+                          </div>
+                        );
+                      })}
                     </div>
                 </div>
             </div>

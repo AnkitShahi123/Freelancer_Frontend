@@ -301,6 +301,7 @@ class Signup extends Component {
                       value="Register"
                       class="btn-register px-5 btn-primary"
                       style={btnRegister}
+                      onClick={this.sendUserInfo}
                     />
                   </form>
                 </div>

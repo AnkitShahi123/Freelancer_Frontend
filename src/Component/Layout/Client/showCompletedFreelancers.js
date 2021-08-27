@@ -93,7 +93,8 @@ export default class showCompletedFreelancers extends Component {
                                             <div class="row wrap-service-22">
 
                                                 <div class="col-lg-6">
-                                                    <img src={`http://localhost:89/${work.userid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+                                    
+                                                    <img src={`http://localhost:89/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
                                                 </div>
 
                                                 <div class="col-lg-6 mt-4 mt-md-0">

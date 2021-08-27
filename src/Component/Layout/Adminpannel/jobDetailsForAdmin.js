@@ -4,11 +4,9 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 const axios = require("axios").default;
 
-class updatework extends Component {
+class jobDetailsForAdmin extends Component {
   state = {
-    config: {
-      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-    },
+    
     workid: "",
     worktitle: "",
     worktype: "",
@@ -30,14 +28,15 @@ class updatework extends Component {
     photo: "",
     role: "",
     projects: "",
-
+    approval: "",
     company: "",
     foundedin: "",
     userbio: "",
-
+    myamount: "",
+    video: "",
     id: this.props.match.params.id,
   };
-  changeHandler = (e) => {
+  inputHandler = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -47,20 +46,19 @@ class updatework extends Component {
       video: e.target.files[0],
     });
   };
+  applywork=(id)=>{
+      
+  }
+  savework=(id)=>{
 
-  componentDidMount() {
+  }
+
+    componentDidMount() {
     axios
-      .get(
-        "http://localhost:89/work/showSingle/" + this.state.id,
-        this.state.config
-      )
+      .get("http://localhost:89/work/showSingle/" + this.state.id)
       .then((response) => {
         this.setState({
-          config: {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          },
+          
           workid: response.data._id,
           worktitle: response.data.worktitle,
           worktype: response.data.worktype,
@@ -84,7 +82,7 @@ class updatework extends Component {
           photos: response.data.creator.photo,
           role: response.data.creator.role,
           projects: response.data.creator.projects,
-
+          approval: response.data.approval,
           company: response.data.creator.company,
           foundedin: response.data.creator.foundedin,
           userbio: response.data.creator.userbio,
@@ -95,40 +93,8 @@ class updatework extends Component {
         alert("Error. Please Login first");
       });
   }
-  updatework = (e) => {
-    e.preventDefault();
-    Swal.fire({
-      title: "update for "+this.state.worktitle +" now?",
-      icon: "warning",
 
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios({
-          method: "put",
-          url: "http://localhost:89/work/updatework/" + this.state.id,
-          data: this.state,
-          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-        })
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((err) => {
-            console.log(this.state.config);
-            console.log(err.response);
-            alert("work update unsuccessfull");
-          });
-
-        Swal.fire(
-          "Updated",
-          "Your have successfully updated this work.",
-          "success"
-        );
-      }
-    });
-  };
+  
 
   render() {
     return (
@@ -146,9 +112,7 @@ class updatework extends Component {
               <div class="row">
                 <div class="col-xl-12">
                   <div class="hero-cap text-center">
-                    <h2>
-                     
-                    </h2>
+                    <h2>{this.state.worktype}</h2>
                   </div>
                 </div>
               </div>
@@ -170,45 +134,21 @@ class updatework extends Component {
                         <img
                           src={`http://localhost:89/${this.state.photo}`}
                           alt=""
-                          style={{ height: "150px" }}
+                          style={{ height: "200px" }}
                         />
                       </a>
                     </div>
                     <div class="job-tittle">
                       <a href="#">
-                        <h4>
-                          <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.worktitle}
-                            name="worktitle"
-                            onChange={this.changeHandler}
-                          />
-                        </h4>
+                        <h4>{this.state.worktitle}</h4>
                       </a>
-                      <input
-                        type="text"
-                        className="form-control"
-                        value={this.state.worktype}
-                        name="worktype"
-                        onChange={this.changeHandler}
-                      />
                       <ul>
-                        <li>{this.state.creator.company}</li>
+                        <li>{this.state.company}</li>
                         <li>
                           <i class="fas fa-map-marker-alt"></i>
-                          {this.state.creator.address}
+                          {this.state.address}
                         </li>
-                        <li>
-                          ${" "}
-                          <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.estimatedprice}
-                            name="estimatedprice"
-                            onChange={this.changeHandler}
-                          />
-                        </li>
+                        <li>$ {this.state.estimatedprice}</li>
                       </ul>
                     </div>
                   </div>
@@ -221,11 +161,7 @@ class updatework extends Component {
                     <div class="small-section-tittle">
                       <h4>Work Description</h4>
                     </div>
-                    <p><input type="text" 
-                     className="form-control" 
-                     value= {this.state.workdescription}
-                     name="workdescription"
-                     onChange={this.changeHandler}/></p>
+                    <p>{this.state.workdescription}</p>
                   </div>
                   <div class="post-details2  mb-50">
                     {/* <!-- Small Section Tittle --> */}
@@ -233,11 +169,7 @@ class updatework extends Component {
                       <h4>Required Knowledge, Skills, and Abilities</h4>
                     </div>
                     <ul>
-                      <li><input type="text" 
-                     className="form-control" 
-                     value= {this.state.skills}
-                     name="skills"
-                     onChange={this.changeHandler}/></li>
+                      <li>{this.state.skills}</li>
                     </ul>
                   </div>
                   <div class="post-details2  mb-50">
@@ -246,11 +178,7 @@ class updatework extends Component {
                       <h4>Education + Experience</h4>
                     </div>
                     <ul>
-                      <li><input type="text" 
-                     className="form-control" 
-                     value= {this.state.requiredexperience}
-                     name="requiredexperience"
-                     onChange={this.changeHandler}/></li>
+                      <li>{this.state.requiredexperience}</li>
                     </ul>
                   </div>
                 </div>
@@ -262,6 +190,7 @@ class updatework extends Component {
                   <div class="small-section-tittle">
                     <h4>Job Overview</h4>
                   </div>
+                  
                   <ul>
                     <li>
                       Posted date : <span>{this.state.createdAt}</span>
@@ -270,40 +199,34 @@ class updatework extends Component {
                       Location : <span>{this.state.address}</span>
                     </li>
                     <li>
-                      Vacancy : <span><input type="text" 
-                     className="form-control" 
-                     value= {this.state.vacancy}
-                     name="vacancy"
-                     onChange={this.changeHandler}/></span>
+                      Vacancy : <span>{this.state.vacancy}</span>
                     </li>
                     <li>
-                      Estimated Salary Salary :{" "}
-                      <span>$<input type="text" 
-                     className="form-control" 
-                     value= {this.state.estimatedprice}
-                     name="estimatedprice"
-                     onChange={this.changeHandler}/></span>
+                      Estimated Price :{" "}
+                      <span>${this.state.estimatedprice}</span>
                     </li>
                   </ul>
-                  <div class="small-section-tittle">
-                    <h4>
-                     Update your information?
-                    </h4>
-                  </div>
-
+                  <Link to="/showAllforAdmin">
                   <div class="row mb-3 px-3">
                     {" "}
-                    <Button type="submit" class="btn btn-blue text-center" onClick={this.updatework} >
-                     Confirm Update?
+                    <Button
+                      type="submit"
+                      class="btn btn-blue text-center"
+                      onClick={this.savework.bind(this, this.state.workid)}
+                    >
+                     
+                      GO BACK
+                      
                     </Button>{" "}
                   </div>
+                  </Link>
                 </div>
                 <div class="post-details4  mb-50">
                   {/* <!-- Small Section Tittle --> */}
                   <div class="small-section-tittle">
                     <h4>Company Information</h4>
                   </div>
-                  <span>{this.state.creator.company}</span>
+                  <span>{this.state.company}</span>
 
                   <ul>
                     <li>
@@ -333,4 +256,4 @@ class updatework extends Component {
     );
   }
 }
-export default updatework;
+export default jobDetailsForAdmin;

@@ -163,10 +163,12 @@ class myStartedWorks extends Component {
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
-                    <th><h5>Email</h5></th>
-                    <th><h5>Work Experience</h5></th>
-                    <th><h5>Work Salary</h5></th>
+                    
+                    <th><h5>&nbsp;Photo</h5></th>
+                    <th><h5>Job Title</h5></th>
+                    <th><h5>My Price</h5></th>
+                    <th><h5>My video Resume</h5></th>
+                    
                     <th><h5>Posted On</h5></th>
                     <th style={css1}><h5>Actions</h5></th>
                   </tr>
@@ -175,10 +177,14 @@ class myStartedWorks extends Component {
                             return (
                               <tbody>
                               <tr>
-                                <td>1</td>
-                                <td>Company Email Here!!!</td>
-                                <td>{work.requiredexperience}</td>
-                                <td>{work.estimatedprice}</td>
+                                <td><img
+                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  /></td>
+                                <td>{work.workid.worktitle}</td>
+                         
+                                <td>${work.myamount}</td>
+                                <td><a href={`http://localhost:89/${work.video}`} target="_blank">My VideoResume</a></td>
                                 <td>{work.createdAt}</td>
                                 <td>
                                   <button type="button" class="btn0 btn-danger btn-xs dt-delete">

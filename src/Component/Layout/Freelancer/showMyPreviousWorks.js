@@ -158,10 +158,10 @@ export default class showMyPreviousWorks extends Component {
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
-                    <th><h5>Email</h5></th>
-                    <th><h5>Work Experience</h5></th>
-                    <th><h5>Work Salary</h5></th>
+                  <th><h5>Photo</h5></th>
+                    <th><h5>Work Title</h5></th>
+                    <th><h5>Work Description</h5></th>
+                    <th><h5>My Bidding amount</h5></th>
                     <th><h5>Posted On</h5></th>
                   </tr>
                 </thead>
@@ -169,10 +169,13 @@ export default class showMyPreviousWorks extends Component {
                             return (
                               <tbody>
                               <tr>
-                                <td>1</td>
-                                <td>Company Email Here!!!</td>
-                                <td>{work.requiredexperience}</td>
-                                <td>{work.estimatedprice}</td>
+                              <td><img
+                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  /></td>
+                                <td>{work.workid.worktitle}</td>
+                                <td>{work.workid.workdescription}</td>
+                                <td>${work.myamount}</td>
                                 <td>{work.createdAt}</td>
                               </tr>
                              

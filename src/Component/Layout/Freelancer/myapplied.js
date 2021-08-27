@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { Tooltip,IconButton } from '@material-ui/core';
 const axios = require("axios").default;
 
 const css1 = {
@@ -69,6 +70,28 @@ export default class myApplied extends Component {
       }
     });
   };
+
+
+  showPopOver=(id)=>{
+    Swal.fire({
+      title: id,
+      icon: 'info',
+      html:
+        'You can use <b>bold text</b>, ' +
+        '<a href="//sweetalert2.github.io">links</a> ' +
+        'and other HTML tags',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Great!',
+      confirmButtonAriaLabel: 'Thumbs up, great!',
+      cancelButtonText:
+        '<i class="fa fa-thumbs-down"></i>',
+      cancelButtonAriaLabel: 'Thumbs down'
+    })
+  }
+
 
   render() {
     return (
@@ -251,10 +274,12 @@ export default class myApplied extends Component {
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    
+                    <th><h5>Photo</h5></th>
                     <th><h5>Details</h5></th>
-                    <th><h5>Email</h5></th>
-                    <th><h5>Company Name</h5></th>
+                    <th><h5>Work Type</h5></th>
+                    <th><h5>My bidding amount</h5></th>
+                    <th><h5>My Video Resume</h5></th>
                     <th><h5>Status</h5></th>
                     <th style={css1}><h5>Actions</h5></th>
                   </tr>
@@ -263,13 +288,17 @@ export default class myApplied extends Component {
                             return (
                               <tbody>
                               <tr>
-                                <td>1</td>
+                              <td><img
+                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  /></td>
                                 <td><span><h4>{work.workid.worktitle}</h4></span>
                                     <span>
                                         Appilied Date: {work.createdAt}
                                     </span></td>
-                                <td>{work.workid.creator.email}Company Email Here!!!</td>
-                                <td>Company XYZ</td>
+                                <td>{work.workid.worktype}</td>
+                                <td>${work.myamount}</td>
+                                <td><a href={`http://localhost:89/${work.video}`} target="_blank">VideoResume</a></td>
                                 <td> {work.confirmStatus === "Confirmed" ? (
                                       <p>
                                         <h6>
@@ -289,10 +318,22 @@ export default class myApplied extends Component {
                                         </h6>
                                       </p>
                                     )}</td>
+                                    
                                 <td>
                                   <button type="button" class="btn0 btn-danger btn-xs dt-delete">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
                                   </button>
+                                </td>
+                                <td>
+                                  
+                                <Tooltip title="Click to view more" onClick={this.showPopOver.bind(this,work._id)}>
+                                <IconButton >
+                                <i class="fas fa-eye"></i>
+                                </IconButton>
+                              </Tooltip>
+                                
+                                
+                                  
                                 </td>
                               </tr>
                              

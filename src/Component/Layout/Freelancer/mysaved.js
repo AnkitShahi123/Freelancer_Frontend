@@ -113,12 +113,11 @@ export default class mysaved extends Component {
               <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th>&nbsp;</th>
+                    <th>Photo</th>
                     <th>Work Title</th>
                     <th>Work Type</th>
                     <th>Description</th>
-                    <th>Email</th>
-                    <th>Company Name</th>
+                    
                     <th>Price</th>
                     <th style={css1}>Actions</th>
                   </tr>
@@ -127,13 +126,15 @@ export default class mysaved extends Component {
                             return (
                               <tbody>
                               <tr>
-                                <td>1</td>
+                              <td><img
+                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    alt="" style={{ height:100, width:120 }}
+                                  /></td>
                                 <td><span><h5>{work.workid.worktitle}</h5></span></td>  
                                 <td>{work.workid.worktype}</td>
                                 <td>{work.workid.workdescription}</td>
-                                <td>{work.workid.creator._id}</td>
-                                <td>{work.workid.creator.company}</td>
-                                <td>Done</td>
+                                
+                                <td>${work.workid.estimatedprice}</td>
                                 <td>
                                   <button type="button" class="btn0 btn-danger btn-xs dt-delete">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind(this, work._id)}>Delete</span>

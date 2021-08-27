@@ -49,7 +49,7 @@ class findDetails extends Component {
     });
   };
 
-  componentDidMount() {
+    componentDidMount() {
     axios
       .get("http://localhost:89/work/showSingle/" + this.state.id)
       .then((response) => {
@@ -113,7 +113,7 @@ class findDetails extends Component {
       });
   };
 
-  applywork = (id) => {
+  applywork = (id,e) => {
     // alert(this.state.config.headers.authorization)
     Swal.fire({
       title: "Apply for " + this.state.worktitle + " now?",
@@ -124,10 +124,18 @@ class findDetails extends Component {
       confirmButtonText: "Yes, Apply",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios({
+
+        e.preventDefault();
+    const datas = new FormData(); // new line
+    var video = this.refs.video.files[0];
+    datas.append("userid", this.state.userid);
+    datas.append("workid", this.state.workid);
+    datas.append("myamount", this.state.myamount);
+    datas.append("video", video);
+    axios({
           method: "post",
           url: "http://localhost:89/work/applywork/" + id,
-          data: this.state,
+          data: datas,
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
           .then((response) => {
@@ -186,7 +194,7 @@ class findDetails extends Component {
                         <img
                           src={`http://localhost:89/${this.state.photo}`}
                           alt=""
-                          style={{ height: "80px" }}
+                          style={{ height: "200px" }}
                         />
                       </a>
                     </div>
@@ -195,10 +203,10 @@ class findDetails extends Component {
                         <h4>{this.state.worktitle}</h4>
                       </a>
                       <ul>
-                        <li>{this.state.creator.company}</li>
+                        <li>{this.state.company}</li>
                         <li>
                           <i class="fas fa-map-marker-alt"></i>
-                          {this.state.creator.address}
+                          {this.state.address}
                         </li>
                         <li>$ {this.state.estimatedprice}</li>
                       </ul>
@@ -248,13 +256,13 @@ class findDetails extends Component {
                       Posted date : <span>{this.state.createdAt}</span>
                     </li>
                     <li>
-                      Location : <span>{this.state.creator.address}</span>
+                      Location : <span>{this.state.address}</span>
                     </li>
                     <li>
                       Vacancy : <span>{this.state.vacancy}</span>
                     </li>
                     <li>
-                      Estimated Salary Salary :{" "}
+                      Estimated Price :{" "}
                       <span>${this.state.estimatedprice}</span>
                     </li>
                   </ul>
@@ -304,24 +312,24 @@ class findDetails extends Component {
                   <div class="small-section-tittle">
                     <h4>Company Information</h4>
                   </div>
-                  <span>{this.state.creator.company}</span>
+                  <span>{this.state.company}</span>
 
                   <ul>
                     <li>
                       Owner:{" "}
                       <span>
-                        {this.state.creator.firstname}{" "}
-                        {this.state.creator.lastname}{" "}
+                        {this.state.firstname}{" "}
+                        {this.state.lastname}{" "}
                       </span>
                     </li>
                     <li>
-                      Phone : <span>{this.state.creator.phone}</span>
+                      Phone : <span>{this.state.phone}</span>
                     </li>
                     <li>
-                      Email: <span>{this.state.creator.email}</span>
+                      Email: <span>{this.state.email}</span>
                     </li>
                     <li>
-                      Formed in: <span>{this.state.creator.foundedin}</span>
+                      Formed in: <span>{this.state.createdAt}</span>
                     </li>
                   </ul>
                 </div>

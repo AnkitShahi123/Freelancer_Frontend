@@ -48,34 +48,31 @@ export default class applicantsList extends Component {
       .then((response) => {
         console.log("to update" + id);
         alert("Work has been confirmed");
-        window.location.reload();
+        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err.response);
         alert("Error confirming work");
       });
 
-
-      axios({
-        method: "put",
-        url: "http://localhost:89/work/startworktimer/" + id,
-        data: { timerStatus: "Started" },
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    axios({
+      method: "put",
+      url: "http://localhost:89/work/startworktimer/" + id,
+      data: { timerStatus: "Started" },
+      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+    })
+      .then((response) => {
+        console.log("to update" + id);
+        alert("Timer has been started");
+        window.location.reload(false);
       })
-        .then((response) => {
-          console.log("to update" + id);
-          alert("Timer has been started");
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.response);
-          alert("Error starting time");
-        });
-
+      .catch((err) => {
+        console.log(err.response);
+        alert("Error starting time");
+      });
   };
 
   denyMethod = (id) => {
-    
     axios({
       method: "put",
       url: "http://localhost:89/work/approvework/" + id,
@@ -85,7 +82,7 @@ export default class applicantsList extends Component {
       .then((response) => {
         console.log(response);
         alert("work has been denied");
-        window.location.reload();
+        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err.response);
@@ -107,12 +104,13 @@ export default class applicantsList extends Component {
                     <div class="container">
                       <div class="row wrap-service-22">
                         <div class="col-lg-6">
-                          <img
-                            src={`http://localhost:89/${apply.userid.photo}`}
-                            class="rounded img-shadow img-fluid"
-                            alt="wrapkit"
-                            style={{ height: "400px" }}
-                          />
+                            <img
+                              src={`http://localhost:89/${apply.workid.photo}`}
+                              class="rounded img-shadow img-fluid"
+                              alt="wrapkit"
+                              style={{ height: "400px" }}
+                            />
+                            
                         </div>
 
                         <div class="col-lg-6 mt-4 mt-md-0">
@@ -145,7 +143,7 @@ export default class applicantsList extends Component {
                             </p>
                             <p>
                               <h6 class="font-weight-light">
-                               Video Resume Link:
+                                Video Resume Link:
                                 <a
                                   href={`http://localhost:89/${apply.video}`}
                                   target="_blank"
@@ -185,6 +183,7 @@ export default class applicantsList extends Component {
                             </p>
                             {apply.confirmStatus === "Confirmed" ? (
                               <div>
+                                <a href={`mailto:${apply.userid.email}`}>
                                 <Button
                                   disabled={true}
                                   onClick={this.confirmMethod.bind(
@@ -194,7 +193,8 @@ export default class applicantsList extends Component {
                                   variant="success"
                                 >
                                   Confirm
-                                </Button>{" "}
+                                </Button>{" "}</a>
+                                
                                 &nbsp;
                                 <Button
                                   variant="danger"

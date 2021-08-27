@@ -20,6 +20,9 @@ import {
 } from "react-router-dom";
 
 import adminpanel from "../Adminpannel/adminpanel";
+import showAllforAdmin from "../Adminpannel/showAllforAdmin";
+import jobDetailsForAdmin from "../Adminpannel/jobDetailsForAdmin";
+import allclient from "../Adminpannel/allclient";
 import report from "../Adminpannel/report";
 import myApplied from "../Freelancer/myapplied";
 import mysaved from "../Freelancer/mysaved";
@@ -44,6 +47,9 @@ render() {
         {/* For admin */}
         <Route path="/adminpanel" component={adminpanel} />
         <Route path="/report" component={report} />
+        <Route path="/showAllforAdmin" component={showAllforAdmin} />
+        <Route path="/jobDetailsForAdmin" component={jobDetailsForAdmin} />
+        <Route path="/allclient" component={allclient} />
 
         {/* For Client  */}
         <Route path="/addJob" component={addJob} />

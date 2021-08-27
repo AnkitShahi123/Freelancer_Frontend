@@ -148,9 +148,9 @@ class Header extends Component {
                                             <ul id="navigation">
                                                 <li><Link to="/">Home</Link></li>
                                                 {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
-                                                <li><Link to="/showAllJob">Find a Jobs </Link></li> 
+                                                <li><Link to="/showAllJob">Find a Work </Link></li> 
                                                 <li><a href="about.html">About</a></li>
-                                                <li><a href="#">Page</a>
+                                                <li><a href="#">More Actions</a>
                                                     <ul class="submenu">
                                                         <li><Link to="/myApplied">My Applied Jobs</Link></li>
                                                         {/* <li><Link to="/showAllJob">Show Jobs</Link></li> */}
@@ -202,19 +202,22 @@ class Header extends Component {
                                         <nav class="d-none d-lg-block">
                                             <ul id="navigation">
                                                 <li><Link to="/">Home</Link></li>
+                                                <li><Link to="/report">Reports</Link></li>
+                                                
                                                 {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
-                                                <li><Link to="/showAllJob">Find a Jobs </Link></li> 
+                                                <li><Link to="/showAllforAdmin">Find a Jobs </Link></li> 
                                           
-                                                <li><a href="#">Page</a>
+                                                <li><a href="#">More Actions</a>
                                                     <ul class="submenu">
                                           
                                           
-                                                        <li><Link to="/report">Reports</Link></li>
-                                                        <li><Link to="/adminpanel">Adminpanel</Link></li>
+                                                        
+                                                        <li><Link to="/allclient">All Client</Link></li>
+                                                        <li><Link to="/adminpanel">All freelancers</Link></li>
                                           
                                                     </ul>
                                                 </li>
-                                                <li><Link to="/contact">Contact</Link></li>
+                                         
                                           
                                             </ul>
                                         </nav>
@@ -256,18 +259,7 @@ class Header extends Component {
                                 {/* <!-- Main-menu --> */}
                                 <div class="main-menu">
                                     <nav class="d-none d-lg-block">
-                                        <ul id="navigation">
-                                            <li><Link to="/">Home</Link></li>
-                                            {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="#">Page</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><Link to="/contact">Contact</Link></li>
-                                        </ul>
+                                        
                                     </nav>
                                 </div>          
                                 {/* <!-- Header-btn --> */}
