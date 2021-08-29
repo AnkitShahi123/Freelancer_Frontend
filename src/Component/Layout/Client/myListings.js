@@ -96,21 +96,20 @@ class myListings extends Component {
                             <td>{work.createdAt}</td>
                             <td>
                               <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind(this, work._id)}>Delete</span>
                               </button>
                             </td>
                             <td>
                               <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
+                              <Link to={"/updatework/" + work._id}><span class="glyphicon glyphicon-remove" aria-hidden="true">Update</span></Link>
                               </button>
                             </td>
                             <td>
                               <button type="button" class="btn0 btn-danger btn-xs dt-delete">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"   onClick={this.deletework.bind( this,work._id)}>Delete</span>
+                              <Link to={"/applicantsList/" + work._id}><span class="glyphicon glyphicon-remove" aria-hidden="true">Applicants</span></Link>
                               </button>
                             </td>
                           </tr>
-                        
                         </tbody>  
                         );
                     })}
@@ -180,7 +179,6 @@ class myListings extends Component {
     //                           {work.workdescription}
     //                         </h6>
     //                       </div>
-
     //                       <div class="row px-3 mb-4">
     //                         <h6 class="mb-0 text-sm">
     //                           Required Experience:{" "}
