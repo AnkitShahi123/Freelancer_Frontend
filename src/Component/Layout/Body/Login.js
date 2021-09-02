@@ -3,6 +3,12 @@ import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
 
+const css = {
+  background: "#01d28e",
+  border: "1px solid #01d28e ",
+  color: "#fff "
+}
+
 export default class Login extends Component {
   state = {
     email: "",
@@ -216,8 +222,9 @@ export default class Login extends Component {
                     <div class="form-group">
                       <button
                         type="submit"
-                        class="form-control btn btn-primary rounded submit px-3"
+                        class="form-control btn-primary rounded submit px-3"
                         onClick={this.submitUser}
+                        style={css}
                       >
                         Sign In
                       </button>

@@ -3,6 +3,15 @@ import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 const { Component } = require("react");
 
+const CSS = {
+    background: "#fb246a",
+    color: "#fff ",
+    padding: "8px 20px",
+    borderRadius: "2px",
+    outline: "none"
+}
+
+
 
 class Header extends Component {
     state = {
@@ -156,7 +165,7 @@ class Header extends Component {
                                     </div>          
                                     {/* <!-- Header-btn --> */}
                                     <div class="header-btn d-none f-right d-lg-block">
-                                    <Button variant="outline-success" onClick={this.logout}>Logout</Button>
+                                    <Button variant="outline-success" onClick={this.logout} style={CSS}>Logout</Button>
 
                                     </div>
                                 </div>
@@ -211,7 +220,7 @@ class Header extends Component {
                                     </div>          
                                     {/* <!-- Header-btn --> */}
                                     <div class="header-btn d-none f-right d-lg-block">
-                                    <Button variant="outline-success" onClick={this.logout}>Logout</Button>
+                                    <Button variant="outline-success" onClick={this.logout} style={CSS}>Logout</Button>
 
                                     </div>
                                 </div>
@@ -264,7 +273,7 @@ class Header extends Component {
                                 </div>          
                                 {/* <!-- Header-btn --> */}
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <Link to="/signup" class="btn head-btn1">Register</Link>
+                                    <Link to="/signup" class="btn head-btn1" style= {CSS}>Register</Link>
                                     <Link to="/login" class="btn head-btn2">Login</Link>
                                 </div>
                             </div>
