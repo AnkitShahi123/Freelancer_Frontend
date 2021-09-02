@@ -11,6 +11,18 @@ const btnRegister = {
     width: "100%",
 };
 
+const form = {
+    width: "80%",
+    // height: "800px",
+    margin: "20px 20px 20px 200px",
+    background: "#ffffff",
+    boxShadow: "0px 14px 80px rgb(34 35 58 / 20%)",
+    padding: "40px 55px 45px 55px",
+    borderRadius: "15px",
+    transition: "all .3s",
+    textAlign: "left"
+}
+
 const css = {
     marginBottom: "500px"
 }
@@ -140,6 +152,8 @@ class Signup extends Component {
                     </div>
 
                 </div> */}
+        <form>
+          <div class="addform" style={form}>        
         <div class="d-lg-flex half">
           <div
             class="bg order-1 order-md-2"
@@ -285,6 +299,9 @@ class Signup extends Component {
             </div>
           </div>
         </div>
+                      </div></form>
+
+
       </div>
 
       //----------REgister form

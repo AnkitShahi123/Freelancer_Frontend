@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 const axios = require("axios").default;
+const CSS = {
+  background: "#01d28e",
+  border: "1px solid #01d28e ",
+  color: "#fff ",
+  width: "100%",
+  fontFamily: "Barlow",
+  fontSize: "20px",
+  fontWeight: "bold"
+}
 
 class jobAdd extends Component {
   state = {
@@ -192,8 +201,9 @@ class jobAdd extends Component {
               <p>
                 <button
                   variant="secondary"
-                  className="btn btn-primary btn-block"
+                  className="btn-primary btn-block"
                   onClick={this.workAddMethod}
+                  style= {CSS}
                 >
                   Submit
                 </button>
