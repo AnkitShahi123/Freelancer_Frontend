@@ -30,7 +30,6 @@ class Header extends Component {
     }
 
     render() {
-
         if (localStorage.getItem('token') && localStorage.getItem('role') === 'Client') {
             var menu =
                 // <div>
@@ -87,7 +86,7 @@ class Header extends Component {
                                         </div>          
                                         {/* <!-- Header-btn --> */}
                                         <div class="header-btn d-none f-right d-lg-block">
-                                        <Button variant="outline-success" onClick={this.logout} style={fontCss}>Logout</Button>
+                                        <Button variant="outline-success" onClick={this.logout} style={CSS}>Logout</Button>
     
                                         </div>
                                     </div>
@@ -130,7 +129,7 @@ class Header extends Component {
 
                 
             <header>
-            {/* <!-- Header Start --> */}
+            
            <div class="header-area header-transparrent">
                <div class="headder-top header-sticky">
                     <div class="container">
