@@ -9,6 +9,8 @@ const btnRegister = {
     border: "1px solid #01d28e ",
     color: "#fff ",
     width: "100%",
+    fontSize: "18px",
+    fontFamily: "Barlow,sans-serif"
 };
 
 const form = {
@@ -165,7 +167,7 @@ class Signup extends Component {
             <div class="container">
               <div class="row align-items-center justify-content-center">
                 <div class="col-md-7 py-5" style={css}>
-                  <h3>Register Here</h3>
+                  <h3>REGISTER HERE</h3>
                   {/* <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> */}
                   <form action="#" method="post">
                     <div class="row">

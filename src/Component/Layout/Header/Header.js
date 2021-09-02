@@ -8,9 +8,13 @@ const CSS = {
     color: "#fff ",
     padding: "8px 20px",
     borderRadius: "2px",
-    outline: "none"
+    outline: "none",
+    fontFamily: "Barlow,sans-serif"
 }
 
+const fontCss = {
+    fontFamily: "Barlow,sans-serif"
+}
 
 
 class Header extends Component {
@@ -83,7 +87,7 @@ class Header extends Component {
                                         </div>          
                                         {/* <!-- Header-btn --> */}
                                         <div class="header-btn d-none f-right d-lg-block">
-                                        <Button variant="outline-success" onClick={this.logout}>Logout</Button>
+                                        <Button variant="outline-success" onClick={this.logout} style={fontCss}>Logout</Button>
     
                                         </div>
                                     </div>
@@ -274,7 +278,7 @@ class Header extends Component {
                                 {/* <!-- Header-btn --> */}
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <Link to="/signup" class="btn head-btn1" style= {CSS}>Register</Link>
-                                    <Link to="/login" class="btn head-btn2">Login</Link>
+                                    <Link to="/login" class="btn head-btn2" style={fontCss}>Login</Link>
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,8 @@ import "./style.css";
 const css = {
   background: "#01d28e",
   border: "1px solid #01d28e ",
-  color: "#fff "
+  color: "#fff ",
+  fontFamily: "Barlow,sans-serif"
 }
 
 export default class Login extends Component {
