@@ -179,6 +179,7 @@ class Signup extends Component {
                             class="form-control"
                             placeholder="Enter First Name"
                             id="fname"
+                            name="firstname"
                             value={this.state.firstname}
                             onChange={this.inputHandler} required
                           />
@@ -191,6 +192,7 @@ class Signup extends Component {
                             type="text"
                             class="form-control"
                             placeholder="Enter Last Name"
+                            name="lastname"
                             id="lname"
                             value={this.state.lastname}
                             onChange={this.inputHandler} required
@@ -206,6 +208,7 @@ class Signup extends Component {
                             type="text"
                             class="form-control"
                             id="age"
+                            name="age"
                             placeholder="Enter Your Age"
                             value={this.state.age}
                             onChange={this.inputHandler} required
@@ -220,6 +223,7 @@ class Signup extends Component {
                             class="form-control"
                             placeholder="Enter Your Address"
                             id="address"
+                            name="address"
                             value={this.state.address}
                             onChange={this.inputHandler} required
                           />
@@ -235,6 +239,7 @@ class Signup extends Component {
                             class="form-control"
                             placeholder="Enter Your E-mail"
                             id="email"
+                            name="email"
                             value={this.state.email}
                             onChange={this.inputHandler} required
                           />
@@ -250,6 +255,7 @@ class Signup extends Component {
                             class="form-control"
                             placeholder="Enter Password"
                             id="password"
+                            name="password"
                             value={this.state.password}
                             onChange={this.inputHandler} required
                           />
@@ -261,10 +267,11 @@ class Signup extends Component {
                         <div class="form-group first">
                           <label for="lname">Phone Number</label>
                           <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             placeholder="+00 0000 000 0000"
                             id="phoneno"
+                            name="phone"
                             value={this.state.phone} 
                             onChange={this.inputHandler} required
                           />
