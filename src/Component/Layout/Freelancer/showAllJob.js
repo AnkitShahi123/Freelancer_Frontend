@@ -3,6 +3,17 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Route, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const axios = require("axios").default;
+const css = {
+    height: "40px",
+    width: "200px",
+    marginTop: "40px",
+    background: "rgb(251, 36, 106)",
+    color: "rgb(255, 255, 255)",
+    padding: "8px 20px",
+    borderRadius: "2px",
+    outline: "none",  
+    fontFamily: "Barlow, sans-serif"
+}
 
 class showAllJob extends Component {
   state = {
@@ -522,6 +533,7 @@ class showAllJob extends Component {
                               type="submit"
                               class="btn btn-blue text-center"
                               onClick={this.reportwork.bind(this, work._id)}
+                              style={css}
                             >
                              Report this work
                             </button>
