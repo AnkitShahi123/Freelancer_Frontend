@@ -76,7 +76,6 @@ class Header extends Component {
                                             <nav class="d-none d-lg-block">
                                                 <ul id="navigation">
                                                     <li><Link to="/">Home</Link></li>
-                                                    <li><a href="about.html">About</a></li>
                                                     <li><Link to="/addJob">Add Job</Link></li>
                                                     <li><Link to="/myListings">My Postings</Link></li>
                                                     <li><Link to="/showCompletedFreelancers">Completed Freelancers</Link></li>
@@ -147,13 +146,10 @@ class Header extends Component {
                                         <nav class="d-none d-lg-block">
                                             <ul id="navigation">
                                                 <li><Link to="/">Home</Link></li>
-                                                {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
                                                 <li><Link to="/showAllJob">Find a Work </Link></li> 
-                                                <li><a href="about.html">About</a></li>
                                                 <li><a href="#">More Actions</a>
                                                     <ul class="submenu">
                                                         <li><Link to="/myApplied">My Applied Jobs</Link></li>
-                                                        {/* <li><Link to="/showAllJob">Show Jobs</Link></li> */}
                                                         <li><Link to="/mysaved">My Saved Works</Link></li>
                                                         <li><Link to="/myStartedWorks">My Started Works</Link></li>
                                                         <li><Link to="/showMyPreviousWorks">My Previous completed Works</Link></li>
@@ -205,7 +201,7 @@ class Header extends Component {
                                                 <li><Link to="/report">Reports</Link></li>
                                                 
                                                 {/* <li><Link to="/findJobs">Find a Jobs </Link></li>  */}
-                                                <li><Link to="/showAllforAdmin">Find a Jobs </Link></li> 
+                                                <li><Link to="/showAllforAdmin">View Jobs </Link></li> 
                                           
                                                 <li><a href="#">More Actions</a>
                                                     <ul class="submenu">

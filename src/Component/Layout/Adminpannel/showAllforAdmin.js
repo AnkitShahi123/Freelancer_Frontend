@@ -501,13 +501,13 @@ class showAllforAdmin extends Component {
                             >
                              Delete this work
                             </button>
-                            <div class="items-link items-link2 f-right">
+                            {/* <div class="items-link items-link2 f-right">
                               <Link to={"/jobDetailsForAdmin/" + work._id}>
                                 See more
                               </Link>
                               
                               <div>{work.createdAt}</div>
-                            </div>
+                            </div> */}
                           </div>
                         );
                       })}
@@ -559,28 +559,6 @@ class showAllforAdmin extends Component {
     );
     return (
       <div>
-        {/* &nbsp; &nbsp;
-        <h1>
-          <input
-            type="text"
-            value={this.state.typed}
-            name="typed"
-            className="form-control"
-            onChange={this.changeHandler}
-            placeholder="Type something"
-            required
-          ></input>
-          <Button
-            type="submit"
-            class="btn btn-blue text-center"
-            onClick={this.search}
-          >
-            Search
-          </Button>
-          &nbsp; &nbsp;
-          <a href="/showAllJob">Clear Search</a>
-        </h1>
-        {/* <Row>{showStatus}</Row> */}
         <Row>{newdesign}</Row>
       </div>
     );

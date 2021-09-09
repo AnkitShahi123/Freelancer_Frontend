@@ -70,7 +70,6 @@ export default class applicantsList extends Component {
       .then((response) => {
         console.log("to update" + id);
         alert("Work has been confirmed");
-        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err.response);
@@ -86,7 +85,6 @@ export default class applicantsList extends Component {
       .then((response) => {
         console.log("to update" + id);
         alert("Timer has been started");
-        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err.response);
@@ -104,7 +102,6 @@ export default class applicantsList extends Component {
       .then((response) => {
         console.log(response);
         alert("work has been denied");
-        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err.response);
