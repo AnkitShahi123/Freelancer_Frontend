@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 const axios = require("axios").default;
 
+const css = {
+  height: "40px",
+  width: "200px",
+  marginTop: "20px",
+  background: "rgb(251, 36, 106)",
+  color: "rgb(255, 255, 255)",
+  padding: "8px 20px",
+  borderRadius: "2px",
+  outline: "none",  
+  fontFamily: "Barlow, sans-serif"
+}
+
 export default class editclientProfile extends Component {
   state = {
     firstname: "",
@@ -370,9 +382,9 @@ export default class editclientProfile extends Component {
                       <hr></hr>
                       <div class="row">
                         <div class="col-sm-12">
-                          <Button variant="danger" onClick={this.updateProfile}>
+                          <button variant="danger" style={css}  onClick={this.updateProfile}>
                             Update Profile
-                          </Button>
+                          </button>
                         </div>
                       </div>
                     </div>

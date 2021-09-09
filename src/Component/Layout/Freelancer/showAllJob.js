@@ -505,7 +505,7 @@ class showAllJob extends Component {
 
                       {this.state.works.map((work) => {
                         return (
-                          <div class="single-job-items mb-30">
+                           <div class="single-job-items mb-30">
                             <div class="job-items">
                               <div class="company-img">
                                 <a>
@@ -528,6 +528,12 @@ class showAllJob extends Component {
                                 </ul>
                               </div>
                             </div>
+                            <div class="items-link items-link2 f-right">
+                              <Link to={"/jobDetails/" + work._id}>
+                                See more
+                              </Link>
+                              <div>{work.createdAt}</div>
+                            </div>
                             <button
                               type="submit"
                               class="btn btn-blue text-center"
@@ -536,13 +542,6 @@ class showAllJob extends Component {
                             >
                              Report this work
                             </button>
-                            <div class="items-link items-link2 f-right">
-                              <Link to={"/jobDetails/" + work._id}>
-                                See more
-                              </Link>
-                              
-                              <div>{work.createdAt}</div>
-                            </div>
                           </div>
                         );
                       })}

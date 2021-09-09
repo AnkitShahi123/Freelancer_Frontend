@@ -5,6 +5,19 @@ import { Card,Button } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 const axios = require('axios').default;
 
+const css = {
+    height: "40px",
+    width: "200px",
+    marginTop: "40px",
+    background: "#01d28e",
+    color: "rgb(255, 255, 255)",
+    padding: "8px 20px",
+    borderRadius: "2px",
+    outline: "none",  
+    fontFamily: "Barlow, sans-serif"
+}
+
+
 export default class showCompletedFreelancers extends Component {
     state = {
         completedusers: [],
@@ -115,7 +128,7 @@ export default class showCompletedFreelancers extends Component {
 
                                                         
 
-                                                        <a href={`mailto:${work.userid.email}`}><Button class="btn btn-info-gradiant btn-md text-white border-0"><span>Contact this person</span></Button></a>
+                                                        <a href={`mailto:${work.userid.email}`}><button class="btn-md text-white border-0" style={css}><span>Contact this person</span></button></a>
 
                                                     </div>
                                                 </div>

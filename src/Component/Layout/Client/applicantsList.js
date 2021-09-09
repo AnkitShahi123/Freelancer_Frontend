@@ -4,6 +4,28 @@ import { Route, Link, useParams } from "react-router-dom";
 import { Card } from "react-bootstrap";
 const axios = require("axios").default;
 
+const ConformCss = {
+  height: "40px",
+  width: "200px",
+  marginTop: "40px",
+  background: "#01d28e",
+  color: "rgb(255, 255, 255)",
+  padding: "8px 20px",
+  borderRadius: "2px",
+  outline: "none",  
+  fontFamily: "Barlow, sans-serif"
+}
+const DenyCss = {
+  height: "40px",
+  width: "200px",
+  background: "#da2461",
+  color: "rgb(255, 255, 255)",
+  padding: "8px 20px",
+  borderRadius: "2px",
+  outline: "none",  
+  fontFamily: "Barlow, sans-serif"
+}
+
 export default class applicantsList extends Component {
   state = {
     applied: [],
@@ -184,8 +206,9 @@ export default class applicantsList extends Component {
                             {apply.confirmStatus === "Confirmed" ? (
                               <div>
                                 <a href={`mailto:${apply.userid.email}`}>
-                                <Button
+                                <button
                                   disabled={true}
+                                  style={ConformCss}
                                   onClick={this.confirmMethod.bind(
                                     this,
                                     apply._id
@@ -193,33 +216,36 @@ export default class applicantsList extends Component {
                                   variant="success"
                                 >
                                   Confirm
-                                </Button>{" "}</a>
+                                </button>{" "}</a>
                                 
                                 &nbsp;
-                                <Button
+                                <button
                                   variant="danger"
+                                  style={DenyCss}
                                   onClick={this.denyMethod.bind(
                                     this,
                                     apply._id
                                   )}
                                 >
                                   Deny
-                                </Button>
+                                </button>
                               </div>
                             ) : apply.confirmStatus === "denied" ? (
                               <div>
-                                <Button
+                                <button
                                   variant="success"
+                                  style={ConformCss}
                                   onClick={this.confirmMethod.bind(
                                     this,
                                     apply._id
                                   )}
                                 >
                                   Confirm
-                                </Button>{" "}
+                                </button>{" "}
                                 &nbsp;
-                                <Button
+                                <button
                                   disabled={true}
+                                  style={DenyCss}
                                   variant="danger"
                                   onClick={this.denyMethod.bind(
                                     this,
@@ -227,29 +253,31 @@ export default class applicantsList extends Component {
                                   )}
                                 >
                                   Deny
-                                </Button>
+                                </button>
                               </div>
                             ) : (
                               <div>
-                                <Button
+                                <button
                                   variant="success"
+                                  style={ConformCss}
                                   onClick={this.confirmMethod.bind(
                                     this,
                                     apply._id
                                   )}
                                 >
                                   Confirm
-                                </Button>
+                                </button>
                                 &nbsp;
-                                <Button
+                                <button
                                   variant="danger"
+                                  style={DenyCss}
                                   onClick={this.denyMethod.bind(
                                     this,
                                     apply._id
                                   )}
                                 >
                                   Deny
-                                </Button>
+                                </button>
                               </div>
                             )}
                           </div>

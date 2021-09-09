@@ -3,6 +3,17 @@ import React, { Component, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 const axios = require("axios").default;
+const css = {
+    height: "40px",
+    width: "200px",
+    marginTop: "10px",
+    background: "#01d28e",
+    color: "rgb(255, 255, 255)",
+    padding: "8px 20px",
+    borderRadius: "2px",
+    outline: "none",  
+    fontFamily: "Barlow, sans-serif"
+}
 
 class findDetails extends Component {
   state = {
@@ -285,26 +296,29 @@ class findDetails extends Component {
                     name="video"
                     class="form-rounded"
                     ref="video"
+                    style={{ marginTop: 10}}
                   />
                   <div class="row mb-3 px-3">
                     {" "}
-                    <Button
+                    <button
                       type="submit"
                       class="btn btn-blue text-center"
+                      style={css}
                       onClick={this.applywork.bind(this, this.state.workid)}
                     >
                       Apply for work.
-                    </Button>{" "}
+                    </button>{" "}
                   </div>
                   <div class="row mb-3 px-3">
                     {" "}
-                    <Button
+                    <button
                       type="submit"
                       class="btn btn-blue text-center"
+                      style={css}
                       onClick={this.savework.bind(this, this.state.workid)}
                     >
                       Save this work
-                    </Button>{" "}
+                    </button>{" "}
                   </div>
                 </div>
                 <div class="post-details4  mb-50">

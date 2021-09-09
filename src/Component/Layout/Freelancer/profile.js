@@ -4,6 +4,20 @@ import { Route, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 const axios = require("axios").default;
 
+
+const css = {
+  height: "40px",
+  width: "200px",
+  marginTop: "10px",
+  background: "rgb(251, 36, 106)",
+  color: "rgb(255, 255, 255)",
+  padding: "8px 20px",
+  borderRadius: "2px",
+  outline: "none",  
+  fontFamily: "Barlow, sans-serif"
+}
+
+
 const header = {
   // minHeight: "600px", 
   backgroundImage: "url(https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/profile-cover.jpg)",
@@ -277,18 +291,19 @@ export default class profile extends Component {
                       <hr></hr>
                       <div class="row">
                         <div class="col-sm-12">
-                          <Button>
+                          <button>
                             <Link to={"/editUserProfile/" + this.state.users._id}>
                               {" "}
                               <button
                                 class="btn btn-info-gradiant btn-md text-white border-0"
                                 href="#f20"
+                                style={css}
                               >
                                 <span>Update Details</span>
                               </button>
                             </Link>{" "}
                             &nbsp; &nbsp; &nbsp;
-                          </Button>
+                          </button>
                         </div>
                       </div>
                     </div>
