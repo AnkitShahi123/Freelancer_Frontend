@@ -124,7 +124,7 @@ export default class applicantsList extends Component {
                       <div class="row wrap-service-22">
                         <div class="col-lg-6">
                             <img
-                              src={`http://localhost:89/${apply.workid.photo}`}
+                              src={`http://localhost:89/${apply.userid.photo}`}
                               class="rounded img-shadow img-fluid"
                               alt="wrapkit"
                               style={{ height: "400px" }}

@@ -70,7 +70,7 @@ class Signup extends Component {
 
     axios({
       method: "post",
-      url: "https://freelancerbackend.herokuapp.com/user/add",
+      url: "http://localhost:89/user/add",
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })

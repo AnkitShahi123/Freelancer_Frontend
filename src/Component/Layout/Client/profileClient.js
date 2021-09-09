@@ -26,7 +26,7 @@ export default class profileClient extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "https://freelancerbackend.herokuapp.com/clientProfile",
+      url: "http://localhost:89/clientProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -52,10 +52,10 @@ export default class profileClient extends Component {
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
                         <img
-                          src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                          src={`http://localhost:89/${this.state.users.photo}`}
                           alt="Admin"
                           class="rounded-circle"
-                          width="150"
+                          width="140" height="140"
                         />
                         <div class="mt-3">
                           <h4>

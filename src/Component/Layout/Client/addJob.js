@@ -39,7 +39,7 @@ class jobAdd extends Component {
   workAddMethod = (e) => {
     e.preventDefault();
     const data = new FormData(); // new line
-    var image = this.refs.photo.files[0];
+    var photo = this.refs.photo.files[0];
     data.append("worktitle", this.state.worktitle);
     data.append("worktype", this.state.worktype);
     data.append("workdescription", this.state.workdescription);
@@ -47,11 +47,11 @@ class jobAdd extends Component {
     data.append("estimatedprice", this.state.estimatedprice);
     data.append("vacancy", this.state.vacancy);
     data.append("skills", this.state.skills);
-    data.append("photo", image);
+    data.append("photo", photo);
 
     axios({
       method: "post",
-      url: "https://freelancerbackend.herokuapp.com/work/add",
+      url: "http://localhost:89/work/add",
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
