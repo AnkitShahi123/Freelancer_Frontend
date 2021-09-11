@@ -45,7 +45,7 @@ export default class applicantsList extends Component {
     console.log("this is id: " + this.state.id);
     axios({
       method: "get",
-      url: "http://localhost:89/work/showWhoApplied/" + this.state.id,
+      url: "https://freelancerbackend.herokuapp.com/work/showWhoApplied/" + this.state.id,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -63,7 +63,7 @@ export default class applicantsList extends Component {
   confirmMethod = (id) => {
     axios({
       method: "put",
-      url: "http://localhost:89/work/approvework/" + id,
+      url: "https://freelancerbackend.herokuapp.com/work/approvework/" + id,
       data: { confirmStatus: "Confirmed" },
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -78,7 +78,7 @@ export default class applicantsList extends Component {
 
     axios({
       method: "put",
-      url: "http://localhost:89/work/startworktimer/" + id,
+      url: "https://freelancerbackend.herokuapp.com/work/startworktimer/" + id,
       data: { timerStatus: "Started" },
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -95,7 +95,7 @@ export default class applicantsList extends Component {
   denyMethod = (id) => {
     axios({
       method: "put",
-      url: "http://localhost:89/work/approvework/" + id,
+      url: "https://freelancerbackend.herokuapp.com/work/approvework/" + id,
       data: { confirmStatus: "denied" },
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -124,7 +124,7 @@ export default class applicantsList extends Component {
                       <div class="row wrap-service-22">
                         <div class="col-lg-6">
                             <img
-                              src={`http://localhost:89/${apply.userid.photo}`}
+                              src={`https://freelancerbackend.herokuapp.com/${apply.userid.photo}`}
                               class="rounded img-shadow img-fluid"
                               alt="wrapkit"
                               style={{ height: "400px" }}
@@ -153,7 +153,7 @@ export default class applicantsList extends Component {
                               <h6 class="font-weight-light">
                                 Resume Link:
                                 <a
-                                  href={`http://localhost:89/${apply.userid.resume}`}
+                                  href={`https://freelancerbackend.herokuapp.com/${apply.userid.resume}`}
                                   target="_blank"
                                 >
                                   Click to view the resume
@@ -164,7 +164,7 @@ export default class applicantsList extends Component {
                               <h6 class="font-weight-light">
                                 Video Resume Link:
                                 <a
-                                  href={`http://localhost:89/${apply.video}`}
+                                  href={`https://freelancerbackend.herokuapp.com/${apply.video}`}
                                   target="_blank"
                                 >
                                   Click to view the video resume

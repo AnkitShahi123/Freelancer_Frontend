@@ -40,7 +40,7 @@ export default class report extends Component {
 
         axios({
             method: 'get',
-            url: 'http://localhost:89/work/showMyreported',
+            url: 'https://freelancerbackend.herokuapp.com/work/showMyreported',
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
@@ -70,7 +70,7 @@ export default class report extends Component {
       
     //             axios({
     //                 method: "put",
-    //                 url: 'http://localhost:89/work/approveThisWork/' + id,
+    //                 url: 'https://freelancerbackend.herokuapp.com/work/approveThisWork/' + id,
     //                 data: { approval: "Verified by Admin." },
     //                 headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     //             })
@@ -98,7 +98,7 @@ export default class report extends Component {
     
         axios({
           method: "put",
-          url: "http://localhost:89/work/approveThisWork/" + id,
+          url: "https://freelancerbackend.herokuapp.com/work/approveThisWork/" + id,
           data: { approval:'Work has been approved'},
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
@@ -115,7 +115,7 @@ export default class report extends Component {
           
           axios({
             method: "put",
-            url: "http://localhost:89/work/afterReportAction/" + id,
+            url: "https://freelancerbackend.herokuapp.com/work/afterReportAction/" + id,
             data: { status:'Resolved'},
             headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
           })
@@ -144,7 +144,7 @@ export default class report extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/delete/' + id, this.state.config)
+                axios.delete('https://freelancerbackend.herokuapp.com/work/delete/' + id, this.state.config)
                 .then((response) => {
                     console.log(response)
                     //alert("Delete successfull")
@@ -164,7 +164,7 @@ export default class report extends Component {
 
             axios({
               method: "delete",
-              url: "http://localhost:89/work/deleteMyreport/" + id,
+              url: "https://freelancerbackend.herokuapp.com/work/deleteMyreport/" + id,
               
               headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
             })
@@ -207,7 +207,7 @@ export default class report extends Component {
                                             <div class="row wrap-service-22">
 
                                                 <div class="col-lg-6">
-                                                    <img src={`http://localhost:89/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+                                                    <img src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
                                                 </div>
 
                                                 <div class="col-lg-6 mt-4 mt-md-0">

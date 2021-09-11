@@ -26,7 +26,7 @@ class showAllforAdmin extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:89/work/showall")
+      .get("https://freelancerbackend.herokuapp.com/work/showall")
       .then((response) => {
         console.log(response.data);
         console.log(response.data.worktitle);
@@ -52,7 +52,7 @@ class showAllforAdmin extends Component {
     e.preventDefault();
 
     axios
-      .get("http://localhost:89/work/search/" + this.state.typed)
+      .get("https://freelancerbackend.herokuapp.com/work/search/" + this.state.typed)
       .then((response) => {
         this.setState({
           works: response.data,
@@ -83,7 +83,7 @@ class showAllforAdmin extends Component {
       if (result.isConfirmed) {
         
             axios
-              .delete("http://localhost:89/work/delete/" + id, this.state.config)
+              .delete("https://freelancerbackend.herokuapp.com/work/delete/" + id, this.state.config)
               .then((response) => {
                 console.log(response);
                 
@@ -122,7 +122,7 @@ class showAllforAdmin extends Component {
                         <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
                           {" "}
                           <img
-                            src={`http://localhost:89/${work.photo}`}
+                            src={`https://freelancerbackend.herokuapp.com/${work.photo}`}
                             class="image"
                           />{" "}
                         </div>
@@ -475,7 +475,7 @@ class showAllforAdmin extends Component {
                               <div class="company-img">
                                 <a>
                                   <img
-                                    src={`http://localhost:89/${work.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   />
                                 </a>

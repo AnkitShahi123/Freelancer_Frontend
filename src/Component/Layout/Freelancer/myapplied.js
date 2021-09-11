@@ -25,7 +25,7 @@ export default class myApplied extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: "http://localhost:89/work/showMyApplied",
+      url: "https://freelancerbackend.herokuapp.com/work/showMyApplied",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -50,7 +50,7 @@ export default class myApplied extends Component {
       if (result.isConfirmed) {
         axios
           .delete(
-            "http://localhost:89/work/deleteMyApplied/" + id,
+            "https://freelancerbackend.herokuapp.com/work/deleteMyApplied/" + id,
             this.state.config
           )
           .then((response) => {
@@ -126,7 +126,7 @@ export default class myApplied extends Component {
               //             <div class="row wrap-service-22">
 
               //                 <div class="col-lg-6">
-              //                     <img src={`http://localhost:89/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+              //                     <img src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
               //                 </div>
 
               //                 <div class="col-lg-6 mt-4 mt-md-0">
@@ -196,7 +196,7 @@ export default class myApplied extends Component {
               //                     <td class="d-flex align-items-center">
               //                       <div class="col-lg-6">
               //                         <img
-              //                           src={`http://localhost:89/${work.workid.photo}`}
+              //                           src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`}
               //                           class="rounded img-shadow img-fluid"
               //                           alt="wrapkit"
               //                           style={{ height: "70px" }}
@@ -289,7 +289,7 @@ export default class myApplied extends Component {
                               <tbody>
                               <tr>
                               <td><img
-                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                                 <td><span><h4>{work.workid.worktitle}</h4></span>
@@ -298,7 +298,7 @@ export default class myApplied extends Component {
                                     </span></td>
                                 <td>{work.workid.worktype}</td>
                                 <td>${work.myamount}</td>
-                                <td><a href={`http://localhost:89/${work.video}`} target="_blank">VideoResume</a></td>
+                                <td><a href={`https://freelancerbackend.herokuapp.com/${work.video}`} target="_blank">VideoResume</a></td>
                                 <td> {work.confirmStatus === "Confirmed" ? (
                                       <p>
                                         <h6>

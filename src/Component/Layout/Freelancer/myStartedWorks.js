@@ -19,7 +19,7 @@ class myStartedWorks extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: "http://localhost:89/work/showMyStarted",
+      url: "https://freelancerbackend.herokuapp.com/work/showMyStarted",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -35,7 +35,7 @@ class myStartedWorks extends Component {
   stopwork = (id) => {
     axios({
         method: "put",
-        url: "http://localhost:89/work/stopworktimer/" + id,
+        url: "https://freelancerbackend.herokuapp.com/work/stopworktimer/" + id,
         data: { timerStatus: "Stopped" },
         headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
       })
@@ -74,7 +74,7 @@ class myStartedWorks extends Component {
     //                       <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
     //                         {" "}
     //                         <img
-    //                           src={`http://localhost:89/${work.photo}`}
+    //                           src={`https://freelancerbackend.herokuapp.com/${work.photo}`}
     //                           class="image"
     //                         />{" "}
     //                       </div>
@@ -178,13 +178,13 @@ class myStartedWorks extends Component {
                               <tbody>
                               <tr>
                                 <td><img
-                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                                 <td>{work.workid.worktitle}</td>
                          
                                 <td>${work.myamount}</td>
-                                <td><a href={`http://localhost:89/${work.video}`} target="_blank">My VideoResume</a></td>
+                                <td><a href={`https://freelancerbackend.herokuapp.com/${work.video}`} target="_blank">My VideoResume</a></td>
                                 <td>{work.createdAt}</td>
                                 <td>
                                   <button type="button" class="btn0 btn-danger btn-xs dt-delete">

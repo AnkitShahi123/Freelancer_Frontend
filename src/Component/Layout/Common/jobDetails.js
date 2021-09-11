@@ -62,7 +62,7 @@ class findDetails extends Component {
 
     componentDidMount() {
     axios
-      .get("http://localhost:89/work/showSingle/" + this.state.id)
+      .get("https://freelancerbackend.herokuapp.com/work/showSingle/" + this.state.id)
       .then((response) => {
         this.setState({
           config: {
@@ -110,7 +110,7 @@ class findDetails extends Component {
 
     axios({
       method: "post",
-      url: "http://localhost:89/work/savework/" + id,
+      url: "https://freelancerbackend.herokuapp.com/work/savework/" + id,
       data: this.state,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -145,7 +145,7 @@ class findDetails extends Component {
     datas.append("video", video);
     axios({
           method: "post",
-          url: "http://localhost:89/work/applywork/" + id,
+          url: "https://freelancerbackend.herokuapp.com/work/applywork/" + id,
           data: datas,
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
@@ -203,7 +203,7 @@ class findDetails extends Component {
                     <div class="company-img company-img-details">
                       <a href="#">
                         <img
-                          src={`http://localhost:89/${this.state.photo}`}
+                          src={`https://freelancerbackend.herokuapp.com/${this.state.photo}`}
                           alt=""
                           style={{ height: "200px" }}
                         />

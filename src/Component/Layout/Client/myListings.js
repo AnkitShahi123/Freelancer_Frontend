@@ -55,7 +55,7 @@ class myListings extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: "http://localhost:89/work/showMyListings",
+      url: "https://freelancerbackend.herokuapp.com/work/showMyListings",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -70,7 +70,7 @@ class myListings extends Component {
 
   deletework = (id) => {
     axios
-      .delete("http://localhost:89/work/delete/" + id, this.state.config)
+      .delete("https://freelancerbackend.herokuapp.com/work/delete/" + id, this.state.config)
       .then((response) => {
         console.log(response);
         alert("Delete successfull");
@@ -123,7 +123,7 @@ class myListings extends Component {
                           <tbody>
                           <tr>
                           <td><img
-                                    src={`http://localhost:89/${work.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                             <td><span><h4>{work.worktitle}</h4></span>

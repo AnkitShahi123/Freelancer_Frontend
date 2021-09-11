@@ -51,7 +51,7 @@ class updatework extends Component {
   componentDidMount() {
     axios
       .get(
-        "http://localhost:89/work/showSingle/" + this.state.id,
+        "https://freelancerbackend.herokuapp.com/work/showSingle/" + this.state.id,
         this.state.config
       )
       .then((response) => {
@@ -108,7 +108,7 @@ class updatework extends Component {
       if (result.isConfirmed) {
         axios({
           method: "put",
-          url: "http://localhost:89/work/updatework/" + this.state.id,
+          url: "https://freelancerbackend.herokuapp.com/work/updatework/" + this.state.id,
           data: this.state,
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
@@ -168,7 +168,7 @@ class updatework extends Component {
                     <div class="company-img company-img-details">
                       <a href="#">
                         <img
-                          src={`http://localhost:89/${this.state.photo}`}
+                          src={`https://freelancerbackend.herokuapp.com/${this.state.photo}`}
                           alt=""
                           style={{ height: "150px" }}
                         />

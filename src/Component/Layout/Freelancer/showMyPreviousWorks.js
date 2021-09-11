@@ -22,7 +22,7 @@ export default class showMyPreviousWorks extends Component {
 
         axios({
             method: 'get',
-            url: 'http://localhost:89/work/showMyStopped',
+            url: 'https://freelancerbackend.herokuapp.com/work/showMyStopped',
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
@@ -54,7 +54,7 @@ export default class showMyPreviousWorks extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/showMyPreviousWorks/' + id, this.state.config)
+                axios.delete('https://freelancerbackend.herokuapp.com/work/showMyPreviousWorks/' + id, this.state.config)
                 .then((response) => {
                     console.log(response)
                     //alert("Delete successfull")
@@ -98,7 +98,7 @@ export default class showMyPreviousWorks extends Component {
             //                                 <div class="row wrap-service-22">
 
             //                                     <div class="col-lg-6">
-            //                                         <img src={`http://localhost:89/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+            //                                         <img src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
             //                                     </div>
 
             //                                     <div class="col-lg-6 mt-4 mt-md-0">
@@ -170,7 +170,7 @@ export default class showMyPreviousWorks extends Component {
                               <tbody>
                               <tr>
                               <td><img
-                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                                 <td>{work.workid.worktitle}</td>

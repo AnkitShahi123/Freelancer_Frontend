@@ -36,7 +36,7 @@ export default class profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "http://localhost:89/freelancerProfile",
+      url: "https://freelancerbackend.herokuapp.com/freelancerProfile",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
@@ -61,7 +61,7 @@ export default class profile extends Component {
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
                       <img
-                          src={`http://localhost:89/${this.state.users.photo}`}
+                          src={`https://freelancerbackend.herokuapp.com/${this.state.users.photo}`}
                           alt="Admin"
                           class="rounded-circle"
                           width="140" height="140"

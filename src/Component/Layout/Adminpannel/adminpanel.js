@@ -23,7 +23,7 @@ class adminpanel extends Component {
 
   // async componentDidMount() {
   //   await axios
-  //     .get("http://localhost:89/allClient")
+  //     .get("https://freelancerbackend.herokuapp.com/allClient")
   //     .then((response) => {
   //        this.setState({
   //         clients: response.data,
@@ -36,7 +36,7 @@ class adminpanel extends Component {
   // }
   async componentDidMount() {
     await axios
-      .get("http://localhost:89/allFreelancer")
+      .get("https://freelancerbackend.herokuapp.com/allFreelancer")
       .then((response) => {
          this.setState({
           freelancers: response.data,
@@ -51,7 +51,7 @@ class adminpanel extends Component {
   deleteUser = (id) => {
     axios({
       method: "delete",
-      url: "http://localhost:89/deleteUser/" + id,
+      url: "https://freelancerbackend.herokuapp.com/deleteUser/" + id,
       
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
@@ -102,7 +102,7 @@ class adminpanel extends Component {
                               <tr>
                               <th>&nbsp;</th>
                                 <td > <img
-                                    src={`http://localhost:89/${user.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${user.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                                 <td>{user.firstname}</td>

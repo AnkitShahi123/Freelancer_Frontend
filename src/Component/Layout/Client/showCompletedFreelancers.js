@@ -30,7 +30,7 @@ export default class showCompletedFreelancers extends Component {
 
         axios({
             method: 'get',
-            url: 'http://localhost:89/work/showCompletedFreelancers',
+            url: 'https://freelancerbackend.herokuapp.com/work/showCompletedFreelancers',
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
@@ -62,7 +62,7 @@ export default class showCompletedFreelancers extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/deleteshowCompletedFreelancers/' + this.state.config)
+                axios.delete('https://freelancerbackend.herokuapp.com/work/deleteshowCompletedFreelancers/' + this.state.config)
                 .then((response) => {
                     console.log(response)
                     //alert("Delete successfull")
@@ -107,7 +107,7 @@ export default class showCompletedFreelancers extends Component {
 
                                                 <div class="col-lg-6">
                                     
-                                                    <img src={`http://localhost:89/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+                                                    <img src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
                                                 </div>
 
                                                 <div class="col-lg-6 mt-4 mt-md-0">

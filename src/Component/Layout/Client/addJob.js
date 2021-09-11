@@ -51,7 +51,7 @@ class jobAdd extends Component {
 
     axios({
       method: "post",
-      url: "http://localhost:89/work/add",
+      url: "https://freelancerbackend.herokuapp.com/work/add",
       data: data,
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })

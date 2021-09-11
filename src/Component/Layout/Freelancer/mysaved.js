@@ -27,7 +27,7 @@ export default class mysaved extends Component {
 
         axios({
             method: 'get',
-            url: 'http://localhost:89/work/showMySaved',
+            url: 'https://freelancerbackend.herokuapp.com/work/showMySaved',
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
@@ -59,7 +59,7 @@ export default class mysaved extends Component {
           }).then((result) => {
             if (result.isConfirmed) {
       
-                axios.delete('http://localhost:89/work/deleteMySaved/' + id, this.state.config)
+                axios.delete('https://freelancerbackend.herokuapp.com/work/deleteMySaved/' + id, this.state.config)
                 .then((response) => {
                     console.log(response)
                     //alert("Delete successfull")
@@ -127,7 +127,7 @@ export default class mysaved extends Component {
                               <tbody>
                               <tr>
                               <td><img
-                                    src={`http://localhost:89/${work.workid.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.workid.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   /></td>
                                 <td><span><h5>{work.workid.worktitle}</h5></span></td>  

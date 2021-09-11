@@ -21,7 +21,7 @@ class home extends Component {
 
       componentDidMount() {
         axios
-          .get("http://localhost:89/work/showall")
+          .get("https://freelancerbackend.herokuapp.com/work/showall")
           .then((response) => {
             console.log(response.data);
             console.log(response.data.worktitle);
@@ -228,7 +228,7 @@ class home extends Component {
                               <div class="company-img">
                                 <a>
                                   <img
-                                    src={`http://localhost:89/${work.photo}`}
+                                    src={`https://freelancerbackend.herokuapp.com/${work.photo}`}
                                     alt="" style={{ height:100, width:120 }}
                                   />
                                 </a>
